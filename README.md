@@ -2,7 +2,7 @@
 Informatica PO V6
 
 Leerlingen:
-Arjen Palland
-Nathan van Goor
-Niels Bergwerff
+- Arjen Palland
+- Nathan van Goor
+- Niels Bergwerff
  
