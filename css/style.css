@@ -15,8 +15,6 @@ body {
     "content content content content";
 }
 
-/*Grid stijl als menu actief is*/ 
-
 .container#menuActive {
   grid-template-areas:
     "header header header menu"
