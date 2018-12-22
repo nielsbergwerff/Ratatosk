@@ -1,21 +1,33 @@
+/*Algemene stijl*/
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Ariel", Helvetica, sans-serif;
+  height: 100%;
+  margin: 0px;
+}
+
+button {
+  background-color: Transparent;
+  border: none;
 }
 
 /*Grid stijl*/
-
 .container {
   display: grid;
   width: 100%;
+  height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 5fr 5fr;
   grid-template-areas:
     "header header header header"
     "content content content content"
     "content content content content";
 }
 
-.container#menuActive {
+.menuActive {
   grid-template-areas:
     "header header header menu"
     "content content content menu"
@@ -23,29 +35,47 @@ body {
 }
 
 /*Header stijl*/
-
 .header {
   grid-area: header;
+  background-color: #44C8F5;
 }
 
 .header h1 {
   display: inline-block;
+  color: white;
+  margin-left: 20px;
 }
 
-#menuButton {
+.header img {
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menuButtonHeader {
   float: right;
 }
 
-
 /*Menu stijl*/
-
 .menu {
   grid-area: menu;
-    display: none;
+  display: none;
+  background-color: #4388CC;
+  color: white;
+}
+
+.menu h2 {
+  display: inline-block;
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+#menuButtonMenu {
+  float: right;
+  display: none;
 }
 
 /*Content stijl*/
-
 .content {
   grid-area: content;
 }
