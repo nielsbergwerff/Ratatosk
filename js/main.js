@@ -7,17 +7,34 @@ $(document).ready(function() {
   const $container = $(".container");
   const $menuButton = $(".menuButton")
 
+  function menuToggle() {
+    $menu.toggle();
+  }
+
+  function menuClassToggle() {
+    if ($container.hasClass("menuActive")) {
+      $container.removeClass("menuActive");
+    } else {
+      $container.addClass("menuActive");
+    }
+  }
+
+
   $menuButton.click(function() {
     if ($container.hasClass("menuActive")) {
-      $menu.toggle();
-      $container.removeClass("menuActive");
-      $('#menuButtonMenu').toggle();
-      $('#menuButtonHeader').toggle();
+      $("#menuButtonMenu").toggle();
+      $.when(menuToggle()).then(function() {
+        menuClassToggle()
+      }).then(function() {
+        $("#menuButtonHeader").toggle();
+      });
     } else {
-      $menu.toggle();
-      $container.addClass("menuActive");
-      $('#menuButtonMenu').toggle();
-      $('#menuButtonHeader').toggle();
+      $("#menuButtonHeader").toggle();
+      $.when(menuClassToggle()).then(function() {
+        menuToggle();
+      });
+      $("#menuButtonMenu").toggle();
     }
+
   });
 });
