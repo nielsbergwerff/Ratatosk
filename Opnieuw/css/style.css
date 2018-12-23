@@ -1,0 +1,86 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Ariel", Helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+button:hover {
+  outline: none;
+}
+
+/*---DESKTOP---*/
+
+/*MENU*/
+.menu {
+  float: right;
+  width: 20%;
+  background-color: #4388CC;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-left: 1px solid black;
+  color: white;
+}
+
+.menu h2 {
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+#menuButtonMenu {
+  height: 20px;
+  float: right;
+}
+
+/*HEADER*/
+.header {
+  height: 100px;
+  background-color: #44C8F5;
+  border-bottom: 1px solid black;
+}
+
+.header h1 {
+  font-style: italic;
+  font-size: 30px;
+  color: white;
+  margin: 30px 0 0 20px;
+  display: inline-block;
+}
+
+.header img {
+  max-height: 100%;
+  float: right;
+  margin-right: 21%;
+}
+
+#menuButtonHeader {
+  float: right;
+  height: 60%;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/*CONTENT*/
+.content {
+  width: 100%;
+}
+
+.content p {
+
+}
+
+/*---MOBIEL---*/
+
+@media screen and (max-width: 800px) {
+
+}
