@@ -18,6 +18,11 @@ button:hover {
   outline: none;
 }
 
+/*---MOBIEL---*/
+@media screen and (max-width: 901px) {
+
+}
+
 /*---DESKTOP---*/
 .menuButton {
   float: right;
@@ -39,9 +44,17 @@ button:hover {
   position: absolute;
   top: 0px;
   right: 0px;
-  border-left: 1px solid black;
+  -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+  box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
   color: white;
   display: none;
+}
+
+.menuTitle {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, white, grey);
+  border-image-slice: 1;
 }
 
 .menu h2 {
@@ -55,7 +68,6 @@ button:hover {
 .header {
   height: 100px;
   background-color: #44C8F5;
-  border-bottom: 1px solid black;
 }
 
 .header h1 {
@@ -78,6 +90,7 @@ button:hover {
 #menuButtonHeader {
   position: absolute;
   right: 0px;
+  z-index: 1;
 }
 
 /*CONTENT*/
@@ -95,12 +108,14 @@ button:hover {
 
 .contactColumn div {
   display: block;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, white, grey);
+  border-image-slice: 1;
   text-align: center;
   margin: 0;
 }
 
-.contactColumn div p,h2 {
+.contactColumn div p, h2 {
   display: inline-block;
 }
 
@@ -115,7 +130,7 @@ button:hover {
   width: 80%;
   height: 100%;
   background-color: white;
-  border-left: 1px solid black;
+  border-left: 4px solid grey;
 }
 
 /*NIEUWE GROEP*/
@@ -127,6 +142,7 @@ button:hover {
   width: 30%;
   height: 50%;
   background-color: #4388CC;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .newChatButton {
@@ -138,6 +154,3 @@ button:hover {
 .newChatButton img {
   height: 80px;
 }
-
-/*---MOBIEL---*/
-@media screen and (max-width: 800px) {}
