@@ -17,7 +17,7 @@ $(document).ready(function() {
   $newChatButton.click(function() {
     $newChat.fadeToggle("fast");
     if ($newChatImage.attr("src") == "images/plusButton.png") {
-      $newChatImage.attr("src", "images/menuClose.png");
+      $newChatImage.attr("src", "images/newChatClose.png");
     } else {
       $newChatImage.attr("src", "images/plusButton.png");
     }
