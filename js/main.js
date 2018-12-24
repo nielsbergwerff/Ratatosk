@@ -1,40 +1,25 @@
-//Als het document geladen is:
 $(document).ready(function() {
-  //Variabelen
-  const $menu = $(".menu");
-  const $header = $(".header");
-  const $content = $(".content");
-  const $container = $(".container");
-  const $menuButton = $(".menuButton")
 
-  function menuToggle() {
-    $menu.toggle();
-  }
-
-  function menuClassToggle() {
-    if ($container.hasClass("menuActive")) {
-      $container.removeClass("menuActive");
-    } else {
-      $container.addClass("menuActive");
-    }
-  }
-
-
+  //Menu openen en sluiten
+  var $menu = $(".menu");
+  var $menuButton = $(".menuButton");
   $menuButton.click(function() {
-    if ($container.hasClass("menuActive")) {
-      $("#menuButtonMenu").toggle();
-      $.when(menuToggle()).then(function() {
-        menuClassToggle()
-      }).then(function() {
-        $("#menuButtonHeader").toggle();
-      });
-    } else {
-      $("#menuButtonHeader").toggle();
-      $.when(menuClassToggle()).then(function() {
-        menuToggle();
-      });
-      $("#menuButtonMenu").toggle();
-    }
+    $menu.toggle("slide", {
+      direction: 'right'
+    });
+  });
 
+  //Groepmenu openen en sluiten
+  var $newChat = $(".newChat");
+  var $newChatButton = $(".newChatButton");
+  var $newChatImage = $("#newChatImage");
+
+  $newChatButton.click(function() {
+    $newChat.fadeToggle("fast");
+    if ($newChatImage.attr("src") == "images/plusButton.png") {
+      $newChatImage.attr("src", "images/menuClose.png");
+    } else {
+      $newChatImage.attr("src", "images/plusButton.png");
+    }
   });
 });
