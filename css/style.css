@@ -16,6 +16,7 @@ button {
 
 button:hover {
   outline: none;
+  cursor: pointer;
 }
 
 /*---MOBIEL---*/
@@ -53,7 +54,7 @@ button:hover {
 
 .menuTitle {
   border-bottom: 2px solid transparent;
-  border-image: linear-gradient(to right, white, grey);
+  border-image: linear-gradient(to right, white, #4388CC);
   border-image-slice: 1;
 }
 
@@ -125,6 +126,10 @@ button:hover {
   height: 40px;
 }
 
+.chatButton:hover {
+  cursor: pointer;
+}
+
 .chatColumn {
   margin-left: 20%;
   width: 80%;
@@ -154,3 +159,5 @@ button:hover {
 .newChatButton img {
   height: 80px;
 }
+
+.newC
