@@ -3,10 +3,14 @@ $(document).ready(function() {
   //Menu openen en sluiten
   var $menu = $(".menu");
   var $menuButton = $(".menuButton");
+  var $menuButtonHeader = $("#menuButtonHeader");
   $menuButton.click(function() {
-    $menu.toggle("slide", {
-      direction: 'right'
-    });
+    $menu.toggle("slide", {direction: 'right'});
+    if ($menuButtonHeader.css("right") == "0px") {
+      $menuButtonHeader.animate({"right":"20%"});
+    } else {
+      $menuButtonHeader.animate({"right":"0"});
+    }
   });
 
   //Groepmenu openen en sluiten
@@ -23,3 +27,4 @@ $(document).ready(function() {
     }
   });
 });
+//$("div").css({"left":"2000px"}).animate({"left":"0px"}, "slow");

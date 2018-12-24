@@ -75,6 +75,11 @@ button:hover {
   margin-right: 15%;
 }
 
+#menuButtonHeader {
+  position: absolute;
+  right: 0px;
+}
+
 /*CONTENT*/
 .content {
   width: 100%;
