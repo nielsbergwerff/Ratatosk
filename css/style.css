@@ -25,16 +25,6 @@ button:hover {
 }
 
 /*---DESKTOP---*/
-.menuButton {
-  float: right;
-  margin-top: 15px;
-  height: 70px;
-  padding: 0;
-}
-
-.menuButton img {
-  height: 70px;
-}
 
 /*MENU*/
 .menu {
@@ -88,10 +78,18 @@ button:hover {
   margin-right: 15%;
 }
 
-#menuButtonHeader {
+.menuButton {
+  float: right;
+  margin-top: 15px;
+  height: 70px;
+  padding: 0;
   position: absolute;
   right: 0px;
   z-index: 1;
+}
+
+.menuButton img {
+  height: 70px;
 }
 
 /*CONTENT*/

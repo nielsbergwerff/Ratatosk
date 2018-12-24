@@ -12,6 +12,10 @@ $(document).ready(function() {
       $menuButtonHeader.animate({"right":"0"});
     }
   });
+  $menu.mouseleave(function() {
+    $menu.hide("slide", {direction: 'right'});
+    $menuButtonHeader.animate({"right":"0"});
+  });
 
   //Groepmenu openen en sluiten
   var $newChat = $(".newChat");
@@ -27,4 +31,3 @@ $(document).ready(function() {
     }
   });
 });
-//$("div").css({"left":"2000px"}).animate({"left":"0px"}, "slow");
