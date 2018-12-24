@@ -1,3 +1,15 @@
+$.fn.extend({
+    animateStep: function(options) {
+        return this.each(function() {
+            var elementOptions = $.extend({}, options, {step: options.step.bind($(this))});
+            $({x: options.from}).animate({x: options.to}, elementOptions);
+        });
+    },
+    rotate: function(value) {
+        return this.css("transform", "rotate(" + value + "deg)");
+    }
+});
+
 $(document).ready(function() {
 
   //Menu openen en sluiten
@@ -35,11 +47,12 @@ $(document).ready(function() {
   var $newChatImage = $("#newChatImage");
 
   $newChatButton.click(function() {
+
     $newChat.fadeToggle("fast");
-    if ($newChatImage.attr("src") == "images/plusButton.png") {
-      $newChatImage.attr("src", "images/newChatClose.png");
+    if ($newChatImage.css("transform") == "matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)") {
+      $newChatImage.animateStep({from: 45, to: 0, step: $.fn.rotate});
     } else {
-      $newChatImage.attr("src", "images/plusButton.png");
+      $newChatImage.animateStep({from: 0, to: 45, step: $.fn.rotate});
     }
   });
 });
