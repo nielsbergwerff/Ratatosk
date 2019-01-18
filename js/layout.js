@@ -3,7 +3,7 @@ function getHeader() {
   <a href="https://www.greijdanus.nl/" target="_blank"><img src="images/greijdanusLogo.png"></img></a>`;
 }
 
-function getFooter() {
+function getCopyright() {
   return `
   <ul>
     <li>

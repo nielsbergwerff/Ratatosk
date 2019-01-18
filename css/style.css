@@ -119,21 +119,16 @@ li {
   margin-right: 15%;
 }
 
-/*FOOTER*/
-.footer {
-  height:10vh;
-  width:100vw;
-  background-color: #4388CC;
-  position: fixed;
+/*COPYRIGHT*/
+.copyright {
+  height:90vh;
+  width:40vw;
+  background-color: #f9fbff;
+  position:fixed;
   display:none;
+  left:60vh;
   bottom:0vh;
   z-index: 1;
-}
-
-.footerButton {
-  position: fixed;
-  bottom:2vh;
-  right:2vh;
 }
 
 /*CONTENT*/
@@ -201,4 +196,12 @@ li {
 
 .newChatButton img {
   height: 80px;
+}
+
+.blur {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
 }

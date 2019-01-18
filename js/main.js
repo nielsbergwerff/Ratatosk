@@ -25,9 +25,9 @@ $(document).ready(function() {
     $(document).off("mouseup");
   }
 
-  function mouseUp(object,xFunction) {
+  function mouseUp(object,xFunction,object1) {
     $(document).mouseup(function(e) {
-      if(!object.is(e.target) && object.has(e.target).length === 0) {
+      if(!object.is(e.target) && object.has(e.target).length === 0 && !object1.is(e.target) && object1.has(e.target.length === 0)) {
         xFunction();
       }
     });
@@ -39,7 +39,7 @@ $(document).ready(function() {
       menuButton.animate({"right": "+=0.5vw"});
       menu.css("visibility", "visible");
       toggleMenu = false;
-      mouseUp(menu,hideMenu);
+      mouseUp(menu,hideMenu,menuButton);
     } else {
       hideMenu();
     }
@@ -63,26 +63,53 @@ $(document).ready(function() {
     }
   });
 
-  var button = $(".footerButton");
-  var footer = $(".footer");
-  var footerToggle = true;
+  var copyrightButton = $(".copyrightButton");
+  var copyright = $(".copyright");
+  var copyrightToggle = true;
 
-  function hideFooter() {
-    footer.slideToggle();
-    button.animate({"bottom": "-=10vh"});
-    footerToggle = true;
+  // Generic function to set blur radius of $ele
+  var setBlur = function(ele, radius) {
+    $(ele).css({
+      "-webkit-filter": "blur("+radius+"px)",
+      "filter": "blur("+radius+"px)"
+    });
+  },
+
+  // Generic function to tween blur radius
+  tweenBlur = function(ele, startRadius, endRadius) {
+    $({blurRadius: startRadius}).animate({blurRadius: endRadius}, {
+      duration: 500,
+      easing: 'swing', // or "linear"
+      // use jQuery UI or Easing plugin for more options
+      step: function() {
+        setBlur(ele, this.blurRadius);
+      },
+      complete: function() {
+        // Final callback to set the target blur radius
+        // jQuery might not reach the end value
+        setBlur(ele, endRadius);
+      }
+    });
+  };
+
+  function hideCopyright() {
+    tweenBlur('body > *:not(.copyright):not(.menu)', 3, 0);
+    copyright.slideToggle();
+    copyrightButton.animate({"bottom": "-=10vh"});
+    copyrightToggle = true;
     $(document).off("mouseup");
   }
 
-  button.click(function() {
+  copyrightButton.click(function() {
 
-    if(footerToggle) {
-      footer.slideToggle();
-      button.animate({"bottom": "+=10vh"});
-      footerToggle = false;
-      mouseUp(footer,hideFooter);
+    if(copyrightToggle) {
+      tweenBlur('body > *:not(.copyright):not(.menu)', 0, 3);
+      copyright.slideToggle();
+      copyrightButton.animate({"bottom": "+=10vh"});
+      copyrightToggle = false;
+      mouseUp(copyright,hideCopyright,copyrightButton);
     } else {
-      hideFooter();
+      hideCopyright();
     }
 
   });
