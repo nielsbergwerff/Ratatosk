@@ -2,21 +2,21 @@
 <html>
 
 <head>
-
+  <script src="js/layout.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/style.css" type="text/css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 
   <title>Greijdanus Chat</title>
 </head>
 
 <body>
   <div class="header">
-    <h1>Greijdanus Chat</h1>
-    <a href="https://www.greijdanus.nl/" target="_blank"><img src="images/greijdanusLogo.png"></img></a>
+    <script>$(".header").html(getHeader());</script>
   </div>
   <div class="content">
     <div class="contactColumn">
@@ -33,7 +33,8 @@
         <p>Persoon/groep 3</p><img src="images/selectButton.png"></img>
       </div>
     </div>
-    <div class="chatColumn"></div>
+    <div class="chatColumn">
+    </div>
   </div>
   <div class="menu">
     <button class="menuButton"><img src="images/menuButton.png"></img></button>
@@ -45,6 +46,7 @@
       <li>Optie 2</li>
       <li>Optie 3</li>
       <li>Optie 4</li>
+      <li><button class="copyrightButton">Test</button></li>
     </ul>
   </div>
   <div class="newChat">
@@ -56,7 +58,9 @@
     </ul>
   </div>
   <button class="newChatButton"><img id="newChatImage" src="images/plusButton.png"></img></button>
-  <script type="text/javascript" src="js/main.js"></script>
+  <div class="copyright">
+    <script>$(".copyright").html(getCopyright());</script>
+  </div>
 </body>
 
 </html>
