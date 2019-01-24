@@ -2,7 +2,10 @@
   "name": "Ratatosk",
   "version": "0.0.1",
   "main": "index.html",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.4",
+    "http-server": "^0.11.1"
+  },
   "devDependencies": {
     "nwjs-builder-phoenix": "^1.15.0"
   },
