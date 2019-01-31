@@ -6,6 +6,7 @@ Leerlingen:
 - Nathan van Goor
 - Niels Bergwerff
 
+
 EXE Installer Instructies:
 1. Installeer [NodeJS](https://www.npmjs.com/)
 2. Installeer [NSIS](https://nsis.sourceforge.io/Main_Page)
@@ -21,3 +22,4 @@ EXE Installer Instructies:
 
 Je hebt nu een Ratatosk Installer.exe in je Ratatosk project folder klaar om gedistributeerd te worden.
 De volgende keer is alleen stap 11 vereist (tenzij er iets verwijderd/veranderd wordt)
+
