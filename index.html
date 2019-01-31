@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="js/layout.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <title>Greijdanus Chat</title>
+</head>
+
+<body>
+  <div class="header">
+    <script>$(".header").html(getHeader());</script>
+  </div>
+  <div class="content">
+    <div class="contactColumn">
+      <div id="contactTitle">
+        <h2>Chats</h2>
+      </div>
+      <div class="chatButton" id="contact1">
+        <p>Persoon/groep 1</p><img src="images/selectButton.png"></img>
+      </div>
+      <div class="chatButton" id="contact2">
+        <p>Persoon/groep 2</p><img src="images/selectButton.png"></img>
+      </div>
+      <div class="chatButton" id="contact3">
+        <p>Persoon/groep 3</p><img src="images/selectButton.png"></img>
+      </div>
+    </div>
+    <div class="chatColumn">
+    </div>
+  </div>
+  <div class="menu">
+    <button class="menuButton"><img src="images/menuButton.png"></img></button>
+    <div class="menuTitle">
+      <h2>Menu</h2>
+    </div>
+    <ul>
+      <li>Optie 1</li>
+      <li>Optie 2</li>
+      <li>Optie 3</li>
+      <li>Optie 4</li>
+      <li><button class="copyrightButton">Test</button></li>
+    </ul>
+  </div>
+  <div class="newChat">
+    <ul>
+      <li>Optie 1</li>
+      <li>Optie 2</li>
+      <li>Optie 3</li>
+      <li>Optie 4</li>
+    </ul>
+  </div>
+  <button class="newChatButton"><img id="newChatImage" src="images/plusButton.png"></img></button>
+  <div class="copyright">
+    <script>$(".copyright").html(getCopyright());</script>
+  </div>
+</body>
+
+</html>

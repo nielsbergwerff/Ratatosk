@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/layout.js"></script>
+
+  <title>Greijdanus Chat</title>
+</head>
+
+<body>
+  <div class="header">
+    <script>$(".header").html(getHeader());</script>
+	<form action="/sendlogin" method="post">
+		<input type="text" name="username"/>
+		<input type="password" name="password"/>
+    <input type="submit"/>
+	</form>
+  </div>
+</body>
+</html>
