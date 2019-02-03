@@ -7,7 +7,7 @@ Leerlingen:
 - Niels Bergwerff
 
 EXE Installer Instructies:
-1. Installeer [NodeJS](https://www.npmjs.com/)
+1. Installeer [NodeJS](https://nodejs.org/en/)
 2. Installeer [NSIS](https://nsis.sourceforge.io/Main_Page)
 3. Ga naar 'Configuratiescherm\Systeem en beveiliging\Systeem'
 4. Klik op 'Geavanceerde systeeminstellingen'
@@ -21,3 +21,12 @@ EXE Installer Instructies:
 
 Je hebt nu een Ratatosk Installer.exe in je Ratatosk project folder klaar om gedistributeerd te worden.
 De volgende keer is alleen stap 11 vereist (tenzij er iets verwijderd/veranderd wordt)
+
+Server Run Instructies:
+1. Installeer [NodeJS](https://nodejs.org/en/)
+2. Open CMD
+3. Type 'npm install express' en druk op enter
+4. Type 'npm install mysql' en druk op enter
+5. Dubbelklik op 'Run Server.bat'
+
+De volgende keer is alleen stap 5 vereist (tenzij er iets verwijderd/veranderd wordt)
