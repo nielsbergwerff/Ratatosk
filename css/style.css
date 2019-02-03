@@ -168,7 +168,7 @@ li {
   cursor: pointer;
 }
 
-.chatColumn {
+#chatColumn {
   margin-left: 20%;
   width: 80%;
   height: 85vh;
