@@ -1,4 +1,7 @@
-h1 { font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+@font-face {
+    font-family: "Karbid";
+    src: url("Karbid-Normal.otf") format("opentype");
+}
 
 html {
   height: 100vh;
@@ -10,7 +13,7 @@ html {
 }
 
 body {
-  font-family: "Ariel", Helvetica, sans-serif;
+  font-family: "Karbid";
   height: 100vh;
   margin: 0;
   overflow: hidden;
@@ -57,7 +60,7 @@ li {
 .menu {
   float: right;
   width: 20%;
-  background-color: #4388CC;
+  background-color: #f08521;
   height: 100%;
   position: absolute;
   top: 0px;
@@ -71,7 +74,7 @@ li {
 
 .menuTitle {
   border-bottom: 2px solid transparent;
-  border-image: linear-gradient(to right, white, #4388CC);
+  border-image: linear-gradient(to right, white, #f08521);
   border-image-slice: 1;
 }
 
@@ -101,24 +104,20 @@ li {
 .header {
   height: 15.8vh;
   min-height: 60px;
-  background-color: #44C8F5;
+  background-color: #01adc5;
 }
 
 .header h1 {
-  font-style: italic;
-  font-size: 100%;
+  font-size: 200%;
   color: white;
   margin: 30px 0 0 20px;
   display: inline-block;
 }
 
 .header img {
-  max-height: 100%;
-  float: right;
-}
-
-.header a img {
-  margin-right: 15%;
+  height: 75%;
+  margin-top: 1.975vh;
+  margin-left: 3%;
 }
 
 /*COPYRIGHT*/
@@ -162,7 +161,8 @@ li {
 
 .contactColumn img {
   float: right;
-  margin-right: 20px;
+  margin-right: 6px;
+  margin-top: 6px;
   height: 40px;
 }
 
@@ -186,7 +186,7 @@ li {
   left: 20px;
   width: 30%;
   height: 50%;
-  background-color: #4388CC;
+  background-color: #f08521;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
