@@ -1,6 +1,5 @@
 function getHeader() {
-  return `<h1>Greijdanus Chat</h1>
-  <a href="https://www.greijdanus.nl/" target="_blank"><img src="images/greijdanusLogo.png"></img></a>`;
+  return `<img src="images/greijdanusChatLogo.png"</img>`;
 }
 
 function getCopyright() {

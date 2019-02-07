@@ -6,6 +6,7 @@ Leerlingen:
 - Nathan van Goor
 - Niels Bergwerff
 
+
 EXE Installer Instructies:
 1. Installeer [NodeJS](https://nodejs.org/en/)
 2. Installeer [NSIS](https://nsis.sourceforge.io/Main_Page)
