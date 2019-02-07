@@ -2,11 +2,16 @@ const express = require('express');
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const mysql = require('mysql');
 const bodyParser = require("body-parser");
-const cookieSession = require("cookie-session");
 const crypto = require('crypto');
-var helmet = require('helmet');
+const helmet = require('helmet');
+const db = require('./db');
+
+const session = require("cookie-session")({
+  name:'session',
+  keys: ['key1','key2'],
+  maxAge: 60 * 60 * 1000
+});
 
 const port = 80;
 
@@ -16,23 +21,7 @@ app.use('/images',express.static('images'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(helmet());
-app.use(cookieSession({
-  name: 'session',
-  keys: ['akdw3','eo2ve'],
-  maxAge: 60 * 60 * 1000 // 1 uur
-}))
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "informatica",
-  password: "6ElafvkpIoXMjuQd",
-  database: "informatica"
-});
-
-con.connect((err)=>{
-  if(err) throw "Server connection error";
-  else console.log("Connected to database");
-});
+app.use(session);
 
 app.get('/',(req,res)=>{
   if(req.session.loggedIn==='true')res.sendFile(__dirname + '/index.html');
@@ -40,14 +29,19 @@ app.get('/',(req,res)=>{
 });
 
 io.on('connection',(socket)=>{
+
   var cookieString = socket.request.headers.cookie;
 
   var req = {connection: {encrypted: false}, headers: {cookie: cookieString}};
   var res = {getHeader: () =>{}, setHeader: () => {}};
 
   socket.on('chat message',(msg)=>{
-    io.emit('chat message',req.session.username+': '+msg);
+    session(req,res,()=>{
+        io.emit('chat message',req.session.username+": "+msg); // Do something with req.session
+    });
   });
+
+  socket.on('add group',(data)=>{});
 });
 
 app.get('/login',(req,res)=>{
@@ -65,28 +59,13 @@ app.post('/login',(req,res)=>{
 
   var sql = "Select * from users where username='"+username+"' and password='"+hash+"'";
 
-  con.query(sql,(err,result)=>{
+  console.log(db.query(sql));
 
-    if(result[0]) {
-      res.session.cookie('loggedIn','true',{
-        maxAge: 0,
-        secure: true,
-        httpOnly: true
-      });
-    }
+  if(db.query(sql)){
 
+    req.session.loggedIn = 'true';
+    req.session.username = username;
     res.redirect('/');
 
-  });
+  } else console.log('log in error');
 });
-
-
-/*
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log(result);
-  });
-});*/
