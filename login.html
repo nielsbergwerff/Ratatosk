@@ -17,11 +17,14 @@
 <body>
   <div class="header">
     <script>$(".header").html(getHeader());</script>
-	<form action="/login" method="post">
-		<input type="text" name="username"/>
-		<input type="password" name="password"/>
-    <input type="submit"/>
-	</form>
   </div>
+  <div class="loginForm">
+    <h1>Inloggen</h1>
+	   <form action="/login" method="post">
+       <input type="text" name="username"/>
+       <input type="password" name="password"/>
+       <input type="submit"/>
+     </form>
+   </div>
 </body>
 </html>

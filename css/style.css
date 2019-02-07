@@ -207,3 +207,34 @@ li {
     -ms-filter: blur(3px);
     filter: blur(3px);
 }
+
+/*----LOGIN PAGINA----*/
+
+.loginForm {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  height: 50%;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.loginForm form {
+  height: 100%;
+}
+
+.loginForm input {
+  width: 99%;
+  height: 10%;
+  padding: 0;
+  margin-left: 0.5%;
+  margin-top: 4%;
+}
+
+.loginForm input[type="text"], .loginForm input[type="password"] {
+  width: calc(99% - 4px);
+}
+
+.loginForm input[type="submit"] {
+  border: 2px solid black;
+}
