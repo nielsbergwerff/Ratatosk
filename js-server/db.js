@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 var exports = module.exports = {};
-var config = require('./config.json');
+var config = require('../config.json');
 
 var con = mysql.createConnection({
   host: config.host,
@@ -15,10 +15,10 @@ con.connect((err)=>{
   else console.log("Connected to database");
 });
 
-function query(sql){
+function query(sql,cb){
   con.query(sql,(err,result)=>{
-    if(err)return err;
-    else return result;
+    if(result[0])cb(result);
+    else cb(null);
   });
 }
 

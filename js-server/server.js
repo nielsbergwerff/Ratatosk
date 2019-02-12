@@ -9,31 +9,36 @@ const db = require('./db');
 
 const session = require("cookie-session")({
   name:'session',
-  keys: ['key1','key2'],
+  keys: ['rttsk'],
   maxAge: 60 * 60 * 1000
 });
 
 const port = 80;
 
-app.use('/js',express.static('js'));
-app.use('/css',express.static('css'));
-app.use('/images',express.static('images'));
+app.use('/js',express.static('../js-client'));
+app.use('/css',express.static('../css'));
+app.use('/images',express.static('../images'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(session);
 
-app.get('/',(req,res)=>{
-  if(req.session.loggedIn==='true')res.sendFile(__dirname + '/index.html');
-  else res.sendFile(__dirname + '/login.html');
+http.listen(port,()=>{
+  console.log(`listening on *:${port}`);
 });
 
 io.on('connection',(socket)=>{
 
+  //custom req and res for session
   var cookieString = socket.request.headers.cookie;
-
   var req = {connection: {encrypted: false}, headers: {cookie: cookieString}};
   var res = {getHeader: () =>{}, setHeader: () => {}};
+
+  socket.on('set group',()=>{
+    session(req,res,()=>{
+      io.emit('set group',req.session.group);
+    });
+  });
 
   socket.on('chat message',(msg)=>{
     session(req,res,()=>{
@@ -44,12 +49,13 @@ io.on('connection',(socket)=>{
   socket.on('add group',(data)=>{});
 });
 
-app.get('/login',(req,res)=>{
-  res.sendFile(__dirname + '/login.html');
+app.get('/',(req,res)=>{
+  if(req.session.loggedIn==='true')res.sendFile('index.html',{root:'../html'});
+  else res.redirect('/login');
 });
 
-http.listen(port,()=>{
-  console.log(`listening on *:${port}`);
+app.get('/login',(req,res)=>{
+  res.sendFile('login.html',{root:'../html'});
 });
 
 app.post('/login',(req,res)=>{
@@ -59,13 +65,12 @@ app.post('/login',(req,res)=>{
 
   var sql = "Select * from users where username='"+username+"' and password='"+hash+"'";
 
-  console.log(db.query(sql));
-
-  if(db.query(sql)){
-
-    req.session.loggedIn = 'true';
-    req.session.username = username;
-    res.redirect('/');
-
-  } else console.log('log in error');
+  db.query(sql,(result)=>{
+    if(result){
+      req.session.loggedIn = 'true';
+      req.session.username = username;
+      req.session.group = result[0].latestGroup;
+      res.redirect('/');
+    } else res.redirect('/login');
+  });
 });

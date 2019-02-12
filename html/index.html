@@ -11,36 +11,24 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/layout.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
-
-  <script>
-    $(function () {
-      var socket = io();
-      $('form').submit(function(e){
-        e.preventDefault();
-        socket.emit('chat message', $('#message').val());
-        $('#message').val('');
-        return false;
-      });
-      socket.on('chat message', function(msg){
-        $('#chatColumn').append($('<p>').text(msg));
-    });
-    });
-  </script>
+  <script type="text/javascript" src="js/io.js"></script>
 
   <title>Greijdanus Chat</title>
 </head>
 
 <body>
+
   <div class="header">
     <script>$(".header").html(getHeader());</script>
   </div>
+
   <div class="content">
     <div class="contactColumn">
       <div id="contactTitle">
         <h2>Chats</h2>
       </div>
       <div class="chatButton" id="contact1">
-        <p>Persoon/groep 1</p><img src="images/selectButton.png"></img>
+        <p>Persoon/groep 1</p><img id="group1" src="images/selectButton.png"></img>
       </div>
       <div class="chatButton" id="contact2">
         <p>Persoon/groep 2</p><img src="images/selectButton.png"></img>
@@ -51,13 +39,12 @@
     </div>
     <div id="chatColumn">
       <div id="chatBar">
-        <form>
-          <input id="message" type="text"/>
-          <input type="submit"/>
-        </form>
+        <input id="message" type="text"/>
+        <input id="sendMessage" type="button"/>
       </div>
     </div>
   </div>
+
   <div class="menu">
     <button class="menuButton"><img src="images/menuButton.png"></img></button>
     <div class="menuTitle">
