@@ -4,5 +4,5 @@ del "CREATE EXE.bat"
 del "InstallerScript.nsi"
 del "README.md"
 del "Ratatosk Installer.exe"
-del "server.js"
+rmdir /s /q "js-server"
 makensis ..\..\InstallerScript.nsi
