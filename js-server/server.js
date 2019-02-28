@@ -7,14 +7,15 @@ const crypto = require('crypto');
 const helmet = require('helmet');
 const db = require('./db');
 
+//create the session with random keys
 const session = require("cookie-session")({
-  name:'session',
-  keys: ['rttsk'],
+  keys: ['ns&10Kd9;','yLd82^^2k'],
   maxAge: 60 * 60 * 1000
 });
 
 const port = 80;
 
+//
 app.use('/js',express.static('../js-client'));
 app.use('/css',express.static('../css'));
 app.use('/images',express.static('../images'));
@@ -34,8 +35,11 @@ io.on('connection',(socket)=>{
   var req = {connection: {encrypted: false}, headers: {cookie: cookieString}};
   var res = {getHeader: () =>{}, setHeader: () => {}};
 
-  socket.on('set group',()=>{
+
+  socket.on('set group',(group)=>{
     session(req,res,()=>{
+      req.session.group = group;
+
       io.emit('set group',req.session.group);
     });
   });
@@ -63,9 +67,9 @@ app.post('/login',(req,res)=>{
   var password=req.body.password;
   var hash = crypto.createHash('sha256').update(password).digest('hex');
 
-  var sql = "Select * from users where username='"+username+"' and password='"+hash+"'";
+  var query = "Select * from users where username='"+username+"' and password='"+hash+"'";
 
-  db.query(sql,(result)=>{
+  db.query(query,(result)=>{
     if(result){
       req.session.loggedIn = 'true';
       req.session.username = username;
