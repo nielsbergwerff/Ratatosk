@@ -16,18 +16,14 @@ EXE Installer Instructies:
 6. Selecteer bij 'Systeemvariabelen' 'Path'
 7. Klik bij 'Systeemvariabelen' op 'Bewerken...'
 8. Voeg (als hij er nog niet tussen zit) de locatie van de bin folder toe (bijv. 'D:\Program Files (x86)\NSIS\Bin')
-9. Open CMD in de folder van het Ratatosk project
-10. Type 'npm install nwjs-builder-phoenix --save-dev' en druk op enter
-11. Dubbelklik op 'CREATE EXE.bat'
+9. Dubbelklik op 'CREATE EXE.bat'
 
 Je hebt nu een Ratatosk Installer.exe in je Ratatosk project folder klaar om gedistributeerd te worden.
-De volgende keer is alleen stap 11 vereist (tenzij er iets verwijderd/veranderd wordt)
+De volgende keer is alleen stap 9 vereist (tenzij er iets verwijderd/veranderd wordt)
 
 Server Run Instructies:
 1. Installeer [NodeJS](https://nodejs.org/en/)
-2. Open CMD
-3. Type 'npm install express' en druk op enter
-4. Type 'npm install mysql' en druk op enter
-5. Dubbelklik op 'Run Server.bat'
+2. Dubbelklik op 'INSTALL SERVER.bat'
+5. Dubbelklik op 'RUN SERVER.bat'
 
-De volgende keer is alleen stap 5 vereist (tenzij er iets verwijderd/veranderd wordt)
+De volgende keer is alleen stap 3 vereist (tenzij er iets verwijderd/veranderd wordt)
