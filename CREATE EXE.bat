@@ -1,13 +1,13 @@
+CALL npm install nwjs-builder-phoenix -D
 CALL npm run dist
 
-SETLOCAL=ENABLEDELAYEDEXPANSION
+RD /s /q .\dist\Ratatosk-win-x86
+MOVE .\dist\Ratatosk-1.0.0-win-x86 .\dist\Ratatosk-win-x86
+CD dist\Ratatosk-win-x86 || exit /b
 
-CD dist\Ratatosk-0.0.1-win-x86
-
-POWERSHELL -Command "(gc package.json) -replace 'html/index.html', 'index.html' | Out-File package.json"
-
+POWERSHELL -Command "(gc package.json) -replace 'html/index.html', 'index.html' | Out-File package.json" -Encoding UTF8
 DEL "CREATE EXE.bat"
-DEL "Run Server.bat"
+DEL "RUN SERVER.bat"
 DEL "InstallerScript.nsi"
 DEL "README.md"
 DEL "config.json"
