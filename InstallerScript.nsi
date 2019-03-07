@@ -14,12 +14,12 @@ InstallDir $dir
 Section
 StrCpy $INSTDIR $dir
 SetOutPath $INSTDIR
-File /r "Ratatosk-win-x86"
+File /r "Ratatosk-win"
 WriteUninstaller $INSTDIR\uninstaller.exe
-FindFirst $0 $1 $INSTDIR\dist\Ratatosk-win-x86\*.*
+FindFirst $0 $1 $INSTDIR\dist\Ratatosk-win\*.*
 loop:
   StrCmp $1 "" done
-  rename $INSTDIR\dist\Ratatosk-win-x86\$1 $INSTDIR\$1
+  rename $INSTDIR\dist\Ratatosk-win\$1 $INSTDIR\$1
   FindNext $0 $1
   Goto loop
 done:
