@@ -1,6 +1,6 @@
 $(function () {
 
-  var socket = io();
+  var socket = io('http://localhost:80');
 
   $('#sendMessage').click(function(e){
     socket.emit('chat message', $('#message').val());
