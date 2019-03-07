@@ -76,6 +76,7 @@ li {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, white, #f08521);
   border-image-slice: 1;
+  border-style: solid;
 }
 
 .menu h2 {
@@ -151,6 +152,7 @@ li {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, white, grey);
   border-image-slice: 1;
+  border-style: solid;
   text-align: center;
   margin: 0;
 }
