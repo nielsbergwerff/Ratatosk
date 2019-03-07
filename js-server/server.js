@@ -5,6 +5,7 @@ const io = require('socket.io')(http);
 const bodyParser = require("body-parser");
 const crypto = require('crypto');
 const helmet = require('helmet');
+const morgan = require('morgan');
 const db = require('./db');
 
 //create the session with random keys
@@ -22,6 +23,7 @@ app.use('/images',express.static('../images'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(helmet());
+app.use(morgan('dev'));
 app.use(session);
 
 http.listen(port,()=>{
@@ -63,17 +65,15 @@ app.get('/login',(req,res)=>{
 });
 
 app.post('/login',(req,res)=>{
-  var username=req.body.username;
-  var password=req.body.password;
+  var username=req.body.username,
+      password=req.body.password;
   var hash = crypto.createHash('sha256').update(password).digest('hex');
 
-  var query = "Select * from users where username='"+username+"' and password='"+hash+"'";
-
-  db.query(query,(result)=>{
+  db.findUser(username,hash,(result)=>{
     if(result){
       req.session.loggedIn = 'true';
       req.session.username = username;
-      req.session.group = result[0].latestGroup;
+      //req.session.group = result[0].latestGroup;
       res.redirect('/');
     } else res.redirect('/login');
   });
