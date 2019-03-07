@@ -8,6 +8,7 @@
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.3",
+    "deasync": "^0.1.14",
     "express": "^4.16.4",
     "helmet": "^3.15.1",
     "mysql": "^2.16.0",
@@ -19,11 +20,23 @@
     "nwjs-builder-phoenix": "^1.15.0"
   },
   "scripts": {
-    "dist": "build --tasks win-x86 --mirror https://dl.nwjs.io/ . enable_nacl=true",
+    "dist": "build --tasks win-x86 --mirror https://dl.nwjs.io/ .",
     "start": "run --x86 --mirror https://dl.nwjs.io/ ."
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/nielsbergwerff/ratatosk.git"
+  },
+  "build": {
+    "nwFlavor": "sdk",
+    "outputPattern": "${NAME}-${PLATFORM}",
+    "excludes": [
+      "*.bat",
+      "*.nsi",
+      "*.md",
+      "config.json",
+      "Ratatosk Installer.exe",
+      "js-server/**/*"
+    ]
   }
 }
