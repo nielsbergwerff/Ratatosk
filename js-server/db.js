@@ -1,3 +1,4 @@
+module.exports = function() {
 const mysql = require('mysql'),
       config = require('../config.json'),
       SequelizeAuto = require('sequelize-auto'),
@@ -44,7 +45,9 @@ function findUser(user,pass,cb){
   });
 }
 
+exports.sequelize = sequelize;
 exports.findUser = findUser;
 
 //end of auto.run
 });
+};
