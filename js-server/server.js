@@ -1,17 +1,38 @@
-const express = require('express');
-const app = require('express')();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const bodyParser = require("body-parser");
-const crypto = require('crypto');
-const helmet = require('helmet');
-const db = require('./db');
+const express = require('express'),
+      app = require('express')(),
+      http = require('http').Server(app),
+      io = require('socket.io')(http),
+      bodyParser = require("body-parser"),
+      crypto = require('crypto'),
+      helmet = require('helmet'),
+      morgan = require('morgan'),
+      deasync = require('deasync'),
+      cookieParser = require('cookie-parser'),
+      expressSession = require('express-session'),
+      connectSessionSequelize = require('connect-session-sequelize'),
+      config = require('../config.json');
 
-//create the session with random keys
-const session = require("cookie-session")({
-  keys: ['ns&10Kd9;','yLd82^^2k'],
-  maxAge: 60 * 60 * 1000
-});
+//create the session with random secret
+//function {
+  const db = require('./db')();
+  //r();
+//});
+
+//dbPromise.then(()=>{
+  const session = expressSession({
+    key: 'user_sid',
+    secret: 'ns&10Kd9;',
+  /*  store: new (connectSessionSequelize(expressSession.Store))({
+      db: db.sequelize
+    }),
+    */resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      //secure: true
+      expires: 60 * 60 * 1000
+    }
+});//});
 
 const port = 80;
 
@@ -22,7 +43,14 @@ app.use('/images',express.static('../images'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(helmet());
+app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(session);
+
+app.use((req, res, next) => {
+  if (req.cookies.user_sid && !req.session.user)res.clearCookie('user_sid');
+  next();
+});
 
 http.listen(port,()=>{
   console.log(`listening on *:${port}`);
@@ -55,23 +83,25 @@ app.get('/',(req,res)=>{
   req.session.user = "root";
 });
 
-app.get('/login',(req,res)=>{
-  res.sendFile('login.html',{root:'../html'});
-});
+app.route('/login')
+  .get((req,res)=>{
+    res.sendFile('login.html',{root:'../html'});
+  })
+  .post((req,res)=>{
+    var username=req.body.username,
+        password=req.body.password;
+    var hash = crypto.createHash('sha256').update(password).digest('hex');
 
-app.post('/login',(req,res)=>{
-  var user=req.body.username;
-  var pass=req.body.password;
-  var hash = crypto.createHash('sha256').update(pass).digest('hex');
-
-  var query = "Select * from users where username='"+user+"' and password='"+hash+"'";
-
-  db.query(query,(result)=>{
-    if(result){
-      req.session.loggedIn = 'true';
-      req.session.user = user;
-      req.session.group = result[0].latestGroup;
-      res.redirect('/');
-    } else res.redirect('/login');
+    db.findUser(username,hash,(result)=>{
+      if(result){
+        req.session.loggedIn = 'true';
+        req.session.username = username;
+        //req.session.group = result[0].latestGroup;
+        res.redirect('/');
+      } else res.redirect('/login');
+    });
   });
+
+app.use(function (req, res, next) {
+  res.status(404).sendFile('404.html',{root:'../html'})
 });
