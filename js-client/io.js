@@ -20,4 +20,7 @@ $(function () {
     $('#chatColumn').append($('<p>').text(msg));
   });
 
+  socket.on('set group list',(groupList)=>{
+    console.log(groupList);
+  });
 });

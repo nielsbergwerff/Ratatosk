@@ -32,11 +32,13 @@ auto.run(function (err) {
 
 var exports = module.exports = {};
 
-const User = require('./models/users');
+const Gebruikers = require('./models/gebruikers');
+const Berichten = require('./models/berichten');
+const Groepen = require('./models/groepen');
 const bcrypt = require('bcrypt');
 
 // create a sequelize instance with our local mysql database information.
-function login(user,passUser.findOne({ where: { username: username } }).then(function (user) {
+/*function login(user,passUser.findOne({ where: { username: username } }).then(function (user) {
             if (!user) {
                 res.redirect('/login');
             } else if (!user.validPassword(password)) {
@@ -46,3 +48,9 @@ function login(user,passUser.findOne({ where: { username: username } }).then(fun
                 res.redirect('/dashboard');
             }
         });
+*/
+function getGroupList(user){
+  Gebruikers.findOne({where:{ID:user}}).then(user=>{
+    return user.ID;
+  })
+}

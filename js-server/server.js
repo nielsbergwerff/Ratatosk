@@ -30,11 +30,7 @@ http.listen(port,()=>{
 
 io.on('connection',(socket)=>{
 
-  //custom req and res for session
-  var cookieString = socket.request.headers.cookie;
-  var req = {connection: {encrypted: false}, headers: {cookie: cookieString}};
-  var res = {getHeader: () =>{}, setHeader: () => {}};
-
+  io.emit('set group list',db.getGroupList(socket.request.session.user));
 
   socket.on('set group',(group)=>{
     session(req,res,()=>{
@@ -54,8 +50,9 @@ io.on('connection',(socket)=>{
 });
 
 app.get('/',(req,res)=>{
-  if(req.session.loggedIn==='true')res.sendFile('index.html',{root:'../html'});
-  else res.redirect('/login');
+  /*if(req.session.loggedIn==='true')*/res.sendFile('index.html',{root:'../html'});
+  //else res.redirect('/login');
+  req.session.user = "root";
 });
 
 app.get('/login',(req,res)=>{
@@ -63,16 +60,16 @@ app.get('/login',(req,res)=>{
 });
 
 app.post('/login',(req,res)=>{
-  var username=req.body.username;
-  var password=req.body.password;
-  var hash = crypto.createHash('sha256').update(password).digest('hex');
+  var user=req.body.username;
+  var pass=req.body.password;
+  var hash = crypto.createHash('sha256').update(pass).digest('hex');
 
-  var query = "Select * from users where username='"+username+"' and password='"+hash+"'";
+  var query = "Select * from users where username='"+user+"' and password='"+hash+"'";
 
   db.query(query,(result)=>{
     if(result){
       req.session.loggedIn = 'true';
-      req.session.username = username;
+      req.session.user = user;
       req.session.group = result[0].latestGroup;
       res.redirect('/');
     } else res.redirect('/login');
