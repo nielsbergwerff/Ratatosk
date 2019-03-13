@@ -5,3 +5,4 @@ Ratatosk
 package-lock.json
 .snyk
 js-server/models
+config.json
