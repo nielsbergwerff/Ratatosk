@@ -1,6 +1,6 @@
-module.exports = function() {
 const mysql = require('mysql'),
       config = require('../config.json'),
+      deasync = require('deasync'),
       SequelizeAuto = require('sequelize-auto'),
       Sequelize = require('sequelize'),
       auto = new SequelizeAuto(config.database,config.user,config.password, {
@@ -9,10 +9,11 @@ const mysql = require('mysql'),
         }
       });
 
-auto.run(function (err) {
-    if (err) throw err;
-//all following code is wrapped within this function
-//no indents for my sanity
+var runSync = function() {
+  var done = false;
+  auto.run(()=>{done = true;});
+  deasync.loopWhile(function(){return !done;});
+}();
 
 var sequelize = new Sequelize(config.database, config.user, config.password, {
   host: config.host,
@@ -35,20 +36,20 @@ sequelize
   console.error('Unable to connect to the database:', err);
 });
 
-const Gebruikers = require('./models/gebruikers');
-const Berichten = require('./models/berichten');
-const Groepen = require('./models/groepen');
-const bcrypt = require('bcrypt');
+const Gebruikers = sequelize.import('./models/gebruikers');
+const Berichten = sequelize.import('./models/berichten');
+const Groepen = sequelize.import('./models/groepen');
 
 function getGroupList(user){
   Gebruikers.findOne({where:{ID:user}}).then(user=>{
-    return user.ID;
+    console.log(user.dataValues.ID)
+    return user.dataValues.ID;
   })
 }
 
 // create a sequelize instance with our local mysql database information.
 function findUser(user,pass,cb){
-  User.findOne({ where: { username: user, password: pass} }).then(user=>{
+  Gebruikers.findOne({ where: { ID  : user, Wachtwoord: pass} }).then(user=>{
     if(user)cb(true);
     else cb(false);
   });
@@ -56,7 +57,4 @@ function findUser(user,pass,cb){
 
 exports.sequelize = sequelize;
 exports.findUser = findUser;
-
-//end of auto.run
-});
-};
+exports.getGroupList = getGroupList;
