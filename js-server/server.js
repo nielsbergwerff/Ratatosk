@@ -57,7 +57,9 @@ http.listen(port,()=>{
 
 io.on('connection',(socket)=>{
 
-  io.emit('set group list',db.getGroupList(socket.request.session.user));
+  db.getGroupList(socket.request.session.user,list=>{
+    io.emit('set group list',list);
+  });
 
   socket.on('set group',(group)=>{
     socket.request.session.group = group;
