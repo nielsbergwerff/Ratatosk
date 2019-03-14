@@ -1,5 +1,4 @@
-const mysql = require('mysql'),
-      config = require('../config.json'),
+const config = require('../config.json'),
       deasync = require('deasync'),
       SequelizeAuto = require('sequelize-auto'),
       Sequelize = require('sequelize'),
@@ -8,6 +7,8 @@ const mysql = require('mysql'),
           timestamps: false
         }
       });
+
+const Op = Sequelize.Op;
 
 var runSync = function() {
   var done = false;
@@ -18,7 +19,6 @@ var runSync = function() {
 var sequelize = new Sequelize(config.database, config.user, config.password, {
   host: config.host,
   dialect: 'mysql',
-  operatorsAliases: false,
   pool: {
     max: 10,
     min: 0,
@@ -36,15 +36,38 @@ sequelize
   console.error('Unable to connect to the database:', err);
 });
 
-const Gebruikers = sequelize.import('./models/gebruikers');
-const Berichten = sequelize.import('./models/berichten');
-const Groepen = sequelize.import('./models/groepen');
+const Gebruikers = sequelize.import('./models/gebruikers'),
+      Berichten = sequelize.import('./models/berichten'),
+      Groepen = sequelize.import('./models/groepen');
+      GroepsLeden = sequelize.import('./models/groepsleden');
 
-function getGroupList(user){
-  Gebruikers.findOne({where:{ID:user}}).then(user=>{
-    console.log(user.dataValues.ID)
-    return user.dataValues.ID;
+//Gebruikers.hasMany(Berichten);
+//Berichten.belongsTo(Gebruikers);
+
+//Gebruikers.hasMany(GroepsLeden);
+//GroepsLeden.belongsTo(Gebruikers);
+
+Groepen.hasMany(GroepsLeden);
+GroepsLeden.belongsTo(Groepen);
+
+//Groepen.hasMany(Berichten);
+//Berichten.belongsTo(Groepen);
+
+function getGroupList( user, cb ){
+
+  var i, output = [];
+
+  Groepen.findAll( {
+    include:[
+      {
+        model: GroepsLeden
+      }
+    ]
   })
+    .then( groups => {
+      for(i=0;i<groups.length;i++) output[i] = [groups[i].dataValues.ID,groups[i].dataValues.Naam];
+      cb(output);
+    });
 }
 
 // create a sequelize instance with our local mysql database information.
