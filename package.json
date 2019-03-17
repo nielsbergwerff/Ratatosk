@@ -14,6 +14,8 @@
     "express-mysql-session": "^2.1.0",
     "helmet": "^3.16.0",
     "morgan": "^1.9.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.1.0",
     "sequelize-auto": "^0.4.29",
     "socket.io": "^2.2.0"
   },

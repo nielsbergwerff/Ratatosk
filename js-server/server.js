@@ -9,8 +9,7 @@ const express = require('express'),
       cookieParser = require('cookie-parser'),
       expressSession = require('express-session'),
       connectSessionSequelize = require('connect-session-sequelize'),
-      db = require('./db'),
-      config = require('../config.json');
+      db = require('./db');
 
 
 const session = expressSession({
