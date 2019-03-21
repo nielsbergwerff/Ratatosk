@@ -12,6 +12,9 @@ $.fn.extend({
 
 $(document).ready(function() {
 
+  //Login error weergeven
+  //$('#loginError').val(document.cookie)
+
   //Menu openen en sluiten
   var menu = $(".menu");
   var menuButton = $(".menuButton");
