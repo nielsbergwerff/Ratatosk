@@ -8,6 +8,11 @@ $(function () {
     return false;
   });
 
+  //button to be added
+  $('#createNewGroup').click(function(e){
+    socket.emit('new group',$('#newGroupName').val());
+  });
+
   $('[id^=group]').click(function(e){
     socket.emit('set group',$(e.target).attr('id').substring(5));
   });
@@ -20,7 +25,13 @@ $(function () {
     $('#chatColumn').append($('<p>').text(msg));
   });
 
-  socket.on('set group list',(groupList)=>{
+  socket.on('get group list',(groupList)=>{
+    socket.emit('set group',groupList[0]);
     console.log(groupList);
   });
+
+  socket.on('get messages',(messages)=>{
+    console.log(messages);
+  });
+
 });
