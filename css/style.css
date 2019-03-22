@@ -166,6 +166,10 @@ li {
     height: 40px;
   }
 
+  .contactClose {
+     display: none;
+  }
+
   .chatButton:hover {
     cursor: pointer;
   }
@@ -275,7 +279,51 @@ li {
 }
 
 .contactColumn {
-  display: none;
+  width: 70vw;
+  height: 100vh;
+  position: absolute;
+  left: -70vw;
+  top: 0;
+  background-color: #f08521;
+  z-index: 1;
+  visibility: hidden;
+}
+
+.contactColumn div {
+  display: block;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #f08521, white);
+  border-image-slice: 1;
+  border-style: none none solid none;
+  text-align: center;
+  margin: 0;
+}
+
+.contactColumn div p, h2 {
+  display: inline-block;
+}
+
+.contactColumn img {
+  float: right;
+  margin-right: 6px;
+  margin-top: 6px;
+  height: 40px;
+}
+
+.contactClose {
+  cursor: pointer;
+  position: absolute;
+  left: 55vw;
+  height: 68px;
+}
+
+.contactClose img {
+  height: 68px;
+  margin: 0;
+}
+
+.chatButton:hover {
+  cursor: pointer;
 }
 
 #chatColumn {
@@ -286,9 +334,10 @@ li {
 }
 
 #chatBar {
-  width: 100%;
+  width: 87vw;
   position: absolute;
   bottom: 0;
+  right: 0;
 }
 
 #message {
@@ -297,8 +346,9 @@ li {
   padding: 0;
   height: 7vh;
   padding-left: 2px;
-  background-image: linear-gradient(white, #CCCCCC);
+  background-image: linear-gradient(white, #EEEEEE);
   font-size: 3vh;
+  border-radius: 6px;
 }
 
 #sendMessage {
@@ -309,30 +359,48 @@ li {
   height: 6vh;
   margin-top: 0.5vh;
   margin-right: 2.5%;
-  background-image: url("../images/sendMessageImage.png");
+  background-image: url("../images/sendButton.png");
   background-color: transparent;
   background-position: center center;
-  background-size: 6vh 6vh;
+  background-size: 7vh 7vh;
   background-repeat: no-repeat;
 }
 
 .newChat {
   grid-area: newChat;
-  display: none;
+  height: 15vh;
+  width: 70vw;
+  position: absolute;
+  bottom: 0;
+  left: -70vw;
+  background-color: #f08521;
+  z-index: 2;
+  visibility: hidden;
+}
+
+.newChat form {
+  width: 60vw;
+  margin-left: 5vw;
+}
+
+.newChat form input {
+  width: 60vw;
+  height: 5vh;
+  padding-left: 6px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 .newChatButton {
   position: absolute;
-  left: 1px;
-  bottom: calc(7vh + 1px);
-  height: 20vw;
+  left: 0;
+  bottom: 0;
+  width: 13vw;
   padding: 0px;
-  max-height: 140px;
 }
 
 #newChatImage {
-  height: 20vw;
-  max-height: 140px;
+  height: 7vh;
 }
 
 .copyright {
@@ -362,6 +430,8 @@ li {
   padding: 0;
   margin-left: 0.5%;
   margin-top: 4%;
+  padding-left: 4px;
+  font-size: 20px;
 }
 
 .loginForm input[type="text"], .loginForm input[type="password"] {
