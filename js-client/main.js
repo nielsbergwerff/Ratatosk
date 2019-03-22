@@ -25,7 +25,7 @@ if ($(window).width() < 901) {
     var toggleNewChat = true;
     var newChatButton = $(".newChatButton");
     var contactClose = $(".contactClose");
-    
+
     $(document).mouseup(function(e) {
       if (!newChat.is(e.target) && newChat.has(e.target).length === 0 && !contactColumn.is(e.target) && contactColumn.has(e.target).length === 0 && !toggleNewChat) {
         hideContactColumn();
