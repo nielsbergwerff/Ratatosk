@@ -14,63 +14,64 @@
   <script type="text/javascript" src="js/io.js"></script>
 
   <title>Greijdanus Chat</title>
-  <link rel="shortcut icon" type="image/png" href="../images/greijdanus-icon.png"/>
-  
+  <link rel="shortcut icon" type="image/png" href="../images/greijdanus-icon.png" />
+
 </head>
 
 <body>
+  <div class="container">
+    <div class="header">
+      <script>$(".header").html(getHeader());</script>
+    </div>
 
-  <div class="header">
-    <script>$(".header").html(getHeader());</script>
-  </div>
-
-  <div class="content">
-    <div class="contactColumn">
-      <div id="contactTitle">
-        <h2>Chats</h2>
+    <div class="content">
+      <div class="contactColumn">
+        <div id="contactTitle">
+          <h2>Chats</h2>
+          <button class="contactClose"><img src="../images/newChatClose.png"></img></button>
+        </div>
+        <div class="chatButton" id="contact1">
+          <p>Persoon/groep 1</p><img id="group1" src="images/selectButton.png"></img>
+        </div>
+        <div class="chatButton" id="contact2">
+          <p>Persoon/groep 2</p><img src="images/selectButton.png"></img>
+        </div>
+        <div class="chatButton" id="contact3">
+          <p>Persoon/groep 3</p><img src="images/selectButton.png"></img>
+        </div>
       </div>
-      <div class="chatButton" id="contact1">
-        <p>Persoon/groep 1</p><img id="group1" src="images/selectButton.png"></img>
-      </div>
-      <div class="chatButton" id="contact2">
-        <p>Persoon/groep 2</p><img src="images/selectButton.png"></img>
-      </div>
-      <div class="chatButton" id="contact3">
-        <p>Persoon/groep 3</p><img src="images/selectButton.png"></img>
+      <div id="chatColumn">
+        <div id="chatBar">
+          <input id="message" type="text" />
+          <input id="sendMessage" type="button" />
+        </div>
       </div>
     </div>
-    <div id="chatColumn">
-      <div id="chatBar">
-        <input id="message" type="text"/>
-        <input id="sendMessage" type="button"/>
-      </div>
-    </div>
-  </div>
 
-  <div class="menu">
-    <button class="menuButton"><img src="images/menuButton.png"></img></button>
-    <div class="menuTitle">
-      <h2>Menu</h2>
+    <div class="menu">
+      <button class="menuButton"><img src="images/menuButton.png"></img></button>
+      <div class="menuTitle">
+        <h2>Menu</h2>
+      </div>
+      <ul>
+        <li>Optie 1</li>
+        <li>Optie 2</li>
+        <li>Optie 3</li>
+        <li>Optie 4</li>
+        <li><button class="copyrightButton">Test</button></li>
+      </ul>
     </div>
-    <ul>
-      <li>Optie 1</li>
-      <li>Optie 2</li>
-      <li>Optie 3</li>
-      <li>Optie 4</li>
-      <li><button class="copyrightButton">Test</button></li>
-    </ul>
-  </div>
-  <div class="newChat">
-    <ul>
-      <li>Optie 1</li>
-      <li>Optie 2</li>
-      <li>Optie 3</li>
-      <li>Optie 4</li>
-    </ul>
-  </div>
-  <button class="newChatButton"><img id="newChatImage" src="images/plusButton.png"></img></button>
-  <div class="copyright">
-    <script>$(".copyright").html(getCopyright());</script>
+    <div class="newChat">
+      <form>
+        <input type="text" placeholder="Naam/leerlingnummer/docentcode">
+      </form>
+    </div>
+    <button class="newChatButton"><img id="newChatImage" src="images/plusButton.png"></img></button>
+    <div class="copyright">
+      <script>
+        $(".copyright").html(getCopyright());
+      </script>
+    </div>
   </div>
 </body>
 

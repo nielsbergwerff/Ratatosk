@@ -10,12 +10,14 @@ html {
 
 * {
   outline:none;
+  font-family: "Karbid";
 }
 
 body {
   font-family: "Karbid";
   height: 100vh;
   margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -49,27 +51,209 @@ li {
   list-style-type: none;
 }
 
-/*---MOBIEL---*/
-@media screen and (max-width: 901px) {
+/*---DESKTOP---*/
+@media screen and (min-width: 901px) {
 
+  /*MENU*/
+  .menu {
+    float: right;
+    width: 20%;
+    background-color: #f08521;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: -20%;
+    -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    color: white;
+    visibility: hidden;
+  }
+
+  .menuTitle {
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, white, #f08521);
+    border-image-slice: 1;
+    border-style: none none solid none;
+  }
+
+  .menu h2 {
+    margin-left: 20px;
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .menuButton {
+    float: right;
+    margin-top: 15px;
+    height: 70px;
+    padding: 0;
+    position: absolute;
+    right: 19.5vw;
+    z-index: 1;
+    visibility: visible;
+  }
+
+  .menuButton img {
+    height: 70px;
+  }
+
+  /*HEADER*/
+  .header {
+    height: 15.8vh;
+    min-height: 60px;
+    background-color: #01adc5;
+  }
+
+  .header h1 {
+    font-size: 200%;
+    color: white;
+    margin: 30px 0 0 20px;
+    display: inline-block;
+  }
+
+  .header img {
+    height: 75%;
+    margin-top: 1.975vh;
+    margin-left: 3%;
+  }
+
+  /*COPYRIGHT*/
+  .copyright {
+    height:90vh;
+    width:40vw;
+    background-color: #f9fbff;
+    position:fixed;
+    display:none;
+    left:60vh;
+    bottom:0vh;
+    z-index: 1;
+  }
+
+  /*CONTENT*/
+  .content {
+    width: 100%;
+    height: 85vh;
+    margin: 0px;
+  }
+
+  .contactColumn {
+    width: 20%;
+    height: 85vh%;
+    background-color: white;
+    float: left;
+  }
+
+  .contactColumn div {
+    display: block;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, white, grey);
+    border-image-slice: 1;
+    border-style: none none solid none;
+    text-align: center;
+    margin: 0;
+  }
+
+  .contactColumn div p, h2 {
+    display: inline-block;
+  }
+
+  .contactColumn img {
+    float: right;
+    margin-right: 6px;
+    margin-top: 6px;
+    height: 40px;
+  }
+
+  .contactClose {
+     display: none;
+  }
+
+  .chatButton:hover {
+    cursor: pointer;
+  }
+
+  #chatColumn {
+    margin-left: 20%;
+    width: 80%;
+    height: 85vh;
+    background-color: white;
+    border-left: 4px solid grey;
+  }
+
+  /*NIEUWE GROEP*/
+  .newChat {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 30%;
+    height: 50%;
+    background-color: #f08521;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .newChatButton {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .newChatButton img {
+    height: 80px;
+  }
+
+  .blur {
+      -webkit-filter: blur(3px);
+      -moz-filter: blur(3px);
+      -o-filter: blur(3px);
+      -ms-filter: blur(3px);
+      filter: blur(3px);
+  }
 }
 
-/*---DESKTOP---*/
+/*---MOBIEL---*/
+@media screen and (max-width: 900px) {
 
-/*MENU*/
+.container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 15vh 85vh;
+  grid-template-areas:
+  "header header header header header"
+  "content content content content content";
+}
+
 .menu {
-  float: right;
-  width: 20%;
-  background-color: #f08521;
-  height: 100%;
   position: absolute;
-  top: 0px;
-  right: -20%;
+  grid-area: menu;
+  background-color: #f08521;
+  visibility: hidden;
+  width: 60vw;
+  right: -60vw;
+  top: 0;
+  height: 100vh;
   -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
   -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
   box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
-  color: white;
-  visibility: hidden;
+}
+
+.menuButton {
+  visibility: visible;
+  position: absolute;
+  width: 15vw;
+  right: 60vw;
+  top: 1vh;
+  padding: 0;
+}
+
+.menuButton img {
+  visibility: visible;
+  width: 15vw;
 }
 
 .menuTitle {
@@ -79,78 +263,36 @@ li {
   border-style: none none solid none;
 }
 
-.menu h2 {
-  margin-left: 20px;
-  font-size: 30px;
-  display: inline-block;
-  margin-left: 20px;
-}
-
-.menuButton {
-  float: right;
-  margin-top: 15px;
-  height: 70px;
-  padding: 0;
-  position: absolute;
-  right: 19.5vw;
-  z-index: 1;
-  visibility: visible;
-}
-
-.menuButton img {
-  height: 70px;
-}
-
-/*HEADER*/
 .header {
-  height: 15.8vh;
-  min-height: 60px;
+  grid-area: header;
   background-color: #01adc5;
 }
 
-.header h1 {
-  font-size: 200%;
-  color: white;
-  margin: 30px 0 0 20px;
-  display: inline-block;
-}
-
 .header img {
-  height: 75%;
-  margin-top: 1.975vh;
-  margin-left: 3%;
+  height: 12vh;
+  margin-top: 1.2vh;
+  margin-left: 2vw;
 }
 
-/*COPYRIGHT*/
-.copyright {
-  height:90vh;
-  width:40vw;
-  background-color: #f9fbff;
-  position:fixed;
-  display:none;
-  left:60vh;
-  bottom:0vh;
-  z-index: 1;
-}
-
-/*CONTENT*/
 .content {
-  width: 100%;
-  height: 85vh;
-  margin: 0px;
+  grid-area: content;
 }
 
 .contactColumn {
-  width: 20%;
-  height: 85vh%;
-  background-color: white;
-  float: left;
+  width: 70vw;
+  height: 100vh;
+  position: absolute;
+  left: -70vw;
+  top: 0;
+  background-color: #f08521;
+  z-index: 1;
+  visibility: hidden;
 }
 
 .contactColumn div {
   display: block;
   border-bottom: 2px solid transparent;
-  border-image: linear-gradient(to right, white, grey);
+  border-image: linear-gradient(to right, #f08521, white);
   border-image-slice: 1;
   border-style: none none solid none;
   text-align: center;
@@ -168,46 +310,103 @@ li {
   height: 40px;
 }
 
+.contactClose {
+  cursor: pointer;
+  position: absolute;
+  left: 55vw;
+  height: 68px;
+}
+
+.contactClose img {
+  height: 68px;
+  margin: 0;
+}
+
 .chatButton:hover {
   cursor: pointer;
 }
 
 #chatColumn {
-  margin-left: 20%;
-  width: 80%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   height: 85vh;
-  background-color: white;
-  border-left: 4px solid grey;
 }
 
-/*NIEUWE GROEP*/
-.newChat {
-  display: none;
+#chatBar {
+  width: 87vw;
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 30%;
-  height: 50%;
+  bottom: 0;
+  right: 0;
+}
+
+#message {
+  width: calc(80% - 2px);
+  border: 1px solid black;
+  padding: 0;
+  height: 7vh;
+  padding-left: 2px;
+  background-image: linear-gradient(white, #EEEEEE);
+  font-size: 3vh;
+  border-radius: 6px;
+}
+
+#sendMessage {
+  width: 15%;
+  border: none;
+  padding: 0;
+  float: right;
+  height: 6vh;
+  margin-top: 0.5vh;
+  margin-right: 2.5%;
+  background-image: url("../images/sendButton.png");
+  background-color: transparent;
+  background-position: center center;
+  background-size: 7vh 7vh;
+  background-repeat: no-repeat;
+}
+
+.newChat {
+  grid-area: newChat;
+  height: 15vh;
+  width: 70vw;
+  position: absolute;
+  bottom: 0;
+  left: -70vw;
   background-color: #f08521;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 2;
+  visibility: hidden;
+}
+
+.newChat form {
+  width: 60vw;
+  margin-left: 5vw;
+}
+
+.newChat form input {
+  width: 60vw;
+  height: 5vh;
+  padding-left: 6px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 .newChatButton {
   position: absolute;
-  left: 20px;
-  bottom: 20px;
+  left: 0;
+  bottom: 0;
+  width: 13vw;
+  padding: 0px;
 }
 
-.newChatButton img {
-  height: 80px;
+#newChatImage {
+  height: 7vh;
 }
 
-.blur {
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px);
+.copyright {
+  display: none;
+}
+
 }
 
 /*----LOGIN PAGINA----*/
@@ -231,6 +430,8 @@ li {
   padding: 0;
   margin-left: 0.5%;
   margin-top: 4%;
+  padding-left: 4px;
+  font-size: 20px;
 }
 
 .loginForm input[type="text"], .loginForm input[type="password"] {
