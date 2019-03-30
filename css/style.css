@@ -138,14 +138,14 @@ li {
     margin: 0px;
   }
 
-  .contactColumn {
+  #groupColumn {
     width: 20%;
     height: 85vh%;
     background-color: white;
     float: left;
   }
 
-  .contactColumn div {
+  #groupColumn div {
     display: block;
     border-bottom: 2px solid transparent;
     border-image: linear-gradient(to right, white, grey);
@@ -155,11 +155,11 @@ li {
     margin: 0;
   }
 
-  .contactColumn div p, h2 {
+  #groupColumn div p, h2 {
     display: inline-block;
   }
 
-  .contactColumn img {
+  #groupColumn img {
     float: right;
     margin-right: 6px;
     margin-top: 6px;
@@ -278,7 +278,7 @@ li {
   grid-area: content;
 }
 
-.contactColumn {
+#groupColumn {
   width: 70vw;
   height: 100vh;
   position: absolute;
@@ -289,7 +289,7 @@ li {
   visibility: hidden;
 }
 
-.contactColumn div {
+#groupColumn div {
   display: block;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, #f08521, white);
@@ -299,11 +299,11 @@ li {
   margin: 0;
 }
 
-.contactColumn div p, h2 {
+#groupColumn div p, h2 {
   display: inline-block;
 }
 
-.contactColumn img {
+#groupColumn img {
   float: right;
   margin-right: 6px;
   margin-top: 6px;
