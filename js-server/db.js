@@ -127,8 +127,14 @@ function saveMessage(text,group,user,cb){
     }).then(()=>{cb(false)});
 }
 
+function getGroup(group,cb){
+  console.log(group)
+  Groepen.findOne({ where: { ID: group }}).then((group)=>{console.log(group)});
+}
+
 exports.sequelize = sequelize;
 exports.findUser = findUser;
 exports.getGroupList = getGroupList;
 exports.getGroupMessages = getGroupMessages;
 exports.saveMessage = saveMessage;
+exports.getGroup = getGroup;
