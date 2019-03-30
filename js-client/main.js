@@ -166,7 +166,7 @@ else {
       };
 
     function hideCopyright() {
-      tweenBlur('body > *:not(.copyright):not(.menu)', 3, 0);
+      tweenBlur('.container > *:not(.copyright):not(.menu)', 3, 0);
       copyright.slideToggle();
       copyrightButton.animate({
         "bottom": "-=10vh"
@@ -178,7 +178,7 @@ else {
     copyrightButton.click(function() {
 
       if (copyrightToggle) {
-        tweenBlur('body > *:not(.copyright):not(.menu)', 0, 3);
+        tweenBlur('.container > *:not(.copyright):not(.menu)', 0, 3);
         copyright.slideToggle();
         copyrightButton.animate({
           "bottom": "+=10vh"
