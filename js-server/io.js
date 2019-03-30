@@ -6,14 +6,17 @@ io.on('connection',(socket)=>{
   });
 
   socket.on('get messages',(group,offset)=>{
-    db.getGroupMessages(group.ID,offset,output=>{
-      io.emit('get messages', output);
+    db.getGroupMessages(group.ID,offset,messages=>{
+      io.emit('get messages', messages);
     });
   });
 
-  socket.on('set group',(group)=>{
-    socket.request.session.group = group;
-    io.emit('set group',group);
+  socket.on('set group',(groupID)=>{
+    db.getGroup(groupID,group=>{
+      console.log(group)
+      socket.request.session.group = group;
+      io.emit('set group',group);
+    });
   });
 
   socket.on('chat message',(msg)=>{
