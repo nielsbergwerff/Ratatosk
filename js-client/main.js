@@ -1,3 +1,13 @@
+var editGroup;
+
+//function voor het laten verschijnen van group settings
+function setGroupSettingsListener(){
+  $('.groupSettings').click(function(e){
+    $('#editGroup').css('display','block').css('left',$(e.target).position().left).css('top',$(e.target).position().top);
+    editGroup = $(e.target).parent().attr('id');
+  })
+}
+
 $.fn.extend({
   animateStep: function(options) {
     return this.each(function() {
@@ -63,6 +73,8 @@ if ($(window).width() < 901) {
 //Desktop
 else {
   $(document).ready(function() {
+
+    $('#message').keypress(e=>{if(e.keyCode==13)$('#sendMessage').trigger('click')});
 
     //Menu openen en sluiten
     var menu = $(".menu");

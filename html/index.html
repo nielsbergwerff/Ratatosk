@@ -32,11 +32,13 @@
         </div>
       </div>
       <div id="chatColumn">
+        <div id="chat"></div>
         <div id="chatBar">
           <input id="message" type="text" />
-          <input id="sendMessage" type="button" />
+          <input id="sendMessage" type="button" value=">"/>
         </div>
       </div>
+      <div id="memberColumn"></div>
     </div>
 
     <div class="menu">
@@ -53,15 +55,16 @@
       </ul>
     </div>
     <div class="newChat">
-      <form>
-        <input type="text" placeholder="Naam/leerlingnummer/docentcode">
-      </form>
+      <input type="text" placeholder="Naam van de groep" id="newGroupName"/>
+      <input type="button" value=">" id="createNewGroup"/>
     </div>
     <button class="newChatButton"><img id="newChatImage" src="images/plusButton.png"></img></button>
-    <div class="copyright">
-      <script>
-        $(".copyright").html(getCopyright());
-      </script>
+    <div id="copyright">
+      <script>$("#copyright").html(getCopyright());</script>
+    </div>
+    <div id="editGroup">
+      <input type="text" placeholder="voeg mensen toe" id="addMember"/>
+      <input type="button" value=">" id="addMemberButton"/>
     </div>
   </div>
 </body>

@@ -4,6 +4,7 @@ const config = require('../config.json'),
       Sequelize = require('sequelize'),
       auto = new SequelizeAuto(config.database,config.user,config.password, {
         port: config.databasePort,
+        logging: false,
         additional:{
           timestamps: false
         }
@@ -21,6 +22,7 @@ var sequelize = new Sequelize(config.database, config.user, config.password, {
   host: config.databaseHost,
   dialect: 'mysql',
   port: config.databasePort,
+  logging: false,
   pool: {
     max: 10,
     min: 0,
@@ -107,7 +109,8 @@ function findUser(user,pass,cb){
   });
 }
 
-function getGroupMessages(group,offset,cb){
+function getGroupMessages(group,cb){
+
   Berichten.findAll({
     where: {
       GroepsID: group
@@ -128,8 +131,28 @@ function saveMessage(text,group,user,cb){
 }
 
 function getGroup(group,cb){
-  console.log(group)
-  Groepen.findOne({ where: { ID: group }}).then((group)=>{console.log(group)});
+  Groepen.findOne({ where: { ID: group }}).then((group)=>{cb(group)});
+}
+
+function addGroup(user,name){
+  Groepen.create({
+    Naam: name,
+    EigenaarsID: user
+  });
+}
+
+function addGroupMember(owner,user,group,isAdmin){
+  getGroupList(owner,list=>{
+    for(var item in list)if(item.ID=group){
+      GroepsLeden.create({
+        GebruikersID: user,
+        GroepsID: group,
+        isBeheerder: isAdmin
+      }).catch(err=>{
+        console.log(err);
+      });
+    }
+  });
 }
 
 exports.sequelize = sequelize;
@@ -138,3 +161,5 @@ exports.getGroupList = getGroupList;
 exports.getGroupMessages = getGroupMessages;
 exports.saveMessage = saveMessage;
 exports.getGroup = getGroup;
+exports.addGroup = addGroup;
+exports.addGroupMember = addGroupMember;
