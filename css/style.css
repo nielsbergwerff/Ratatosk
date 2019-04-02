@@ -101,7 +101,7 @@ li {
 
   /*HEADER*/
   .header {
-    height: 15.8vh;
+    height: 15vh;
     min-height: 60px;
     background-color: #01adc5;
   }
@@ -194,6 +194,28 @@ li {
     height: 5vh;
   }
 
+  #message {
+    width: calc(93% - 6px);
+    border: none;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    height: calc(100% - 2px);
+    padding-left: 5px;
+    font-size: 2vh;
+  }
+
+  #sendMessage{
+    width: 7%;
+    height: 100%;
+    border: none;
+    float: right;
+    background-image: url(../images/sendButton.png);
+    background-color: transparent;
+    background-position: center center;
+    background-size: 5vh 5vh;
+    background-repeat: no-repeat;
+  }
+
   #editGroup{
     display: none;
     position: absolute;
@@ -205,8 +227,8 @@ li {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    width: 10vw;
-    height: 5vh;
+    width: 30vw;
+    height: 20vh;
     background-color: #f08521;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -224,6 +246,12 @@ li {
 
   .newChatButton img {
     height: 80px;
+  }
+
+  #newGroupName {
+    width: 70%;
+    height: 20%;
+    margin-top: 10%;
   }
 
   .blur {
