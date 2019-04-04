@@ -184,6 +184,7 @@ li {
   #chat {
     height: 80vh;
     background-color: white;
+    overflow-y: scroll;
   }
 
   #chat > p {
@@ -434,6 +435,7 @@ li {
 
 #copyright {
   display: none;
+}
 }
 
 /*----LOGIN PAGINA----*/
