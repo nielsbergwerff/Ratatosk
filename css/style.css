@@ -101,7 +101,7 @@ li {
 
   /*HEADER*/
   .header {
-    height: 15.8vh;
+    height: 15vh;
     min-height: 60px;
     background-color: #01adc5;
   }
@@ -154,6 +154,7 @@ li {
     border-style: none none solid none;
     text-align: center;
     margin: 0;
+    text-overflow: ellipsis;
   }
 
   #groupColumn div p, h2 {
@@ -167,6 +168,19 @@ li {
     height: 40px;
   }
 
+  .groupSettings {
+    border: none;
+    background-image: url(../images/gearIcon.png);
+    background-position: center center;
+    background-color: transparent;
+    background-size: 3vh 3vh;
+    background-repeat: no-repeat;
+    height: 5vh;
+    width: 5vh;
+    float: left;
+    margin-left: 10px;
+  }
+
   .contactClose {
      display: none;
   }
@@ -176,7 +190,7 @@ li {
   }
 
   #chatColumn{
-    width:60vw;
+    width: 60vw;
     height: 85vh;
     border-left: 4px solid grey;
   }
@@ -195,12 +209,35 @@ li {
     height: 5vh;
   }
 
+  #message {
+    width: calc(93% - 6px);
+    border: none;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    height: calc(100% - 2px);
+    padding-left: 5px;
+    font-size: 2vh;
+  }
+
+  #sendMessage {
+    width: 7%;
+    height: 100%;
+    border: none;
+    float: right;
+    background-image: url(../images/sendButton.png);
+    background-color: transparent;
+    background-position: center center;
+    background-size: 5vh 5vh;
+    background-repeat: no-repeat;
+  }
+
   #memberColumn {
     width: 20vw;
     height: 85vh;
     border-color: grey;
     border-left-style: solid;
   }
+
 
   #editGroup{
     display: none;
@@ -213,15 +250,31 @@ li {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    width: 10vw;
-    height: 5vh;
+    width: 30vw;
+    height: 20vh;
     background-color: #f08521;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  #newGroupName,#createNewGroup {
-    position: relative;
-    left:4vw;
+  #newGroupName {
+    width: 70%;
+    height: 20%;
+    margin-top: 10%;
+    margin-left: 7.5%;
+  }
+
+  #createNewGroup {
+    border: none;
+    margin-right: 10%;
+    margin-top: 10%;
+    width: 4vh;
+    height: 4vh;
+    background-color: transparent;
+    background-size: 4vh 4vh;
+    background-image: url(../images/sendButton.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: right;
   }
 
   .newChatButton {
@@ -436,6 +489,8 @@ li {
 #copyright {
   display: none;
 }
+}
+
 }
 
 /*----LOGIN PAGINA----*/

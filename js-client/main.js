@@ -34,7 +34,7 @@ if ($(window).width() < 901) {
 
   $(document).ready(function() {
     //contact kolom openen en sluiten
-    var contactColumn = $(".contactColumn");
+    var contactColumn = $("#groupColumn");
     var newChat = $(".newChat");
     var toggleNewChat = true;
     var newChatButton = $(".newChatButton");
