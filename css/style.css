@@ -133,14 +133,13 @@ li {
 
   /*CONTENT*/
   .content {
-    width: 100vw;
+    width: 100%;
     height: 85vh;
     margin: 0px;
-    display: flex;
   }
 
   #groupColumn {
-    width: 20vw;
+    width: 20%;
     height: 85vh;
     background-color: white;
     float: left;
@@ -176,7 +175,8 @@ li {
   }
 
   #chatColumn{
-    width:60vw;
+    width:80vw;
+    margin-left: 20%;
     height: 85vh;
     border-left: 4px solid grey;
   }
@@ -193,7 +193,6 @@ li {
   #chatBar {
     height: 5vh;
   }
-
 
   #message {
     width: calc(93% - 6px);
@@ -215,12 +214,6 @@ li {
     background-position: center center;
     background-size: 5vh 5vh;
     background-repeat: no-repeat;
-
-  #memberColumn {
-    width: 20vw;
-    height: 85vh;
-    border-color: grey;
-    border-left-style: solid;
   }
 
   #editGroup{
@@ -462,6 +455,8 @@ li {
 
 #copyright {
   display: none;
+}
+
 }
 
 /*----LOGIN PAGINA----*/
