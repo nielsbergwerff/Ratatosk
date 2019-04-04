@@ -8,6 +8,10 @@ function setGroupSettingsListener(){
   })
 }
 
+function hideGroupSettings(){
+  $('#editGroup').css('display','none')
+}
+
 $.fn.extend({
   animateStep: function(options) {
     return this.each(function() {
@@ -145,7 +149,7 @@ else {
     });
 
     var copyrightButton = $(".copyrightButton");
-    var copyright = $(".copyright");
+    var copyright = $("#copyright");
     var copyrightToggle = true;
 
     // Generic function to set blur radius of $ele
@@ -178,7 +182,7 @@ else {
       };
 
     function hideCopyright() {
-      tweenBlur('.container > *:not(.copyright):not(.menu)', 3, 0);
+      tweenBlur('.container > *:not(#copyright):not(.menu)', 3, 0);
       copyright.slideToggle();
       copyrightButton.animate({
         "bottom": "-=10vh"
@@ -190,7 +194,7 @@ else {
     copyrightButton.click(function() {
 
       if (copyrightToggle) {
-        tweenBlur('.container > *:not(.copyright):not(.menu)', 0, 3);
+        tweenBlur('.container > *:not(#copyright):not(.menu)', 0, 3);
         copyright.slideToggle();
         copyrightButton.animate({
           "bottom": "+=10vh"
