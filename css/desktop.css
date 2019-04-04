@@ -1,0 +1,276 @@
+@media screen and (min-width: 901px) {
+
+  /*----LOGIN PAGINA----*/
+
+  #loginForm {
+    margin: auto;
+    width: calc(15vw + 200px);
+    text-align: center;
+    margin-top: calc(30vh - 50px);
+  }
+
+  #loginForm form {
+    height: 100%;
+  }
+
+  #loginForm input {
+    width: 99%;
+    height: calc(1em + 4px + 3vh);
+    padding: 2px;
+    margin-left: 0.5%;
+    margin-top: 8px;
+    padding-left: 16px;
+    font-size: 20px;
+  }
+
+  #loginForm input[type="text"], #loginForm input[type="password"] {
+    width: calc(99% - 16px);
+  }
+
+  #loginForm input[type="submit"] {
+    border: 2px solid black;
+  }
+
+  /*MENU*/
+  .menu {
+    float: right;
+    width: 20%;
+    background-color: #f08521;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: -20%;
+    -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    color: white;
+    visibility: hidden;
+  }
+
+  .menuTitle {
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, white, #f08521);
+    border-image-slice: 1;
+    border-style: none none solid none;
+  }
+
+  .menu h2 {
+    margin-left: 20px;
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .menuButton {
+    float: right;
+    margin-top: 15px;
+    height: 70px;
+    padding: 0;
+    position: absolute;
+    right: 19.5vw;
+    z-index: 1;
+    visibility: visible;
+  }
+
+  .menuButton img {
+    height: 70px;
+  }
+
+  /*HEADER*/
+  .header {
+    height: 100px;
+    min-height: 60px;
+    background-color: #01adc5;
+  }
+
+  .header h1 {
+    font-size: 200%;
+    color: white;
+    margin: 30px 0 0 20px;
+    display: inline-block;
+  }
+
+  .header img {
+    height: 75%;
+    margin-top: 10px;
+    margin-left: 3%;
+  }
+
+  /*COPYRIGHT*/
+  #copyright {
+    height:90vh;
+    width:40vw;
+    background-color: #f9fbff;
+    position:fixed;
+    display:none;
+    left:30vw;
+    bottom:0vh;
+    z-index: 1;
+  }
+
+  /*CONTENT*/
+  .content {
+    width: 100vw;
+    height: 85vh;
+    margin: 0px;
+    display: flex;
+  }
+
+  #groupColumn {
+    width: 20vw;
+    height: 85vh;
+    background-color: white;
+    float: left;
+  }
+
+  #groupColumn div {
+    display: block;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, white, grey);
+    border-image-slice: 1;
+    border-style: none none solid none;
+    text-align: center;
+    margin: 0;
+    text-overflow: ellipsis;
+  }
+
+  #groupColumn div p, h2 {
+    display: inline-block;
+  }
+
+  #groupColumn img {
+    float: right;
+    margin-right: 6px;
+    margin-top: 6px;
+    height: 40px;
+  }
+
+  .groupSettings {
+    border: none;
+    background-image: url(../images/gearIcon.png);
+    background-position: center center;
+    background-color: transparent;
+    background-size: 3vh 3vh;
+    background-repeat: no-repeat;
+    height: 5vh;
+    width: 5vh;
+    float: left;
+    margin-left: 10px;
+  }
+
+  #groupTitle h2 {
+      margin-bottom: 10px;
+  }
+
+  .contactClose {
+     display: none;
+  }
+
+  .chatButton:hover {
+    cursor: pointer;
+  }
+
+  #chatColumn{
+    width: 60vw;
+    height: 85vh;
+    border-left: 4px solid grey;
+  }
+
+  #chat {
+    height: 80vh;
+    background-color: white;
+    overflow-y: scroll;
+  }
+
+  #chat > p {
+    margin-top: 0;
+  }
+
+  #chatBar {
+    height: 5vh;
+  }
+
+  #message {
+    width: calc(93% - 6px);
+    border: none;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    height: calc(100% - 2px);
+    padding-left: 5px;
+    font-size: 2vh;
+  }
+
+  #sendMessage {
+    width: 7%;
+    height: 100%;
+    border: none;
+    float: right;
+    background-image: url(../images/sendButton.png);
+    background-color: transparent;
+    background-position: center center;
+    background-size: 5vh 5vh;
+    background-repeat: no-repeat;
+  }
+
+  #memberColumn {
+    width: 20vw;
+    height: 85vh;
+    border-color: grey;
+    border-left-style: solid;
+  }
+
+  #editGroup{
+    display: none;
+    position: absolute;
+  }
+
+  /*NIEUWE GROEP*/
+  .newGroup {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 30vw;
+    height: 20vh;
+    background-color: #f08521;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  #newGroupName {
+    padding:10px;
+    margin-top: 10%;
+    margin-left: 7.5%;
+  }
+
+  #createNewGroup {
+    border: none;
+    margin-right: 10%;
+    margin-top: 10%;
+    width: 4vh;
+    height: 4vh;
+    background-color: transparent;
+    background-size: 4vh 4vh;
+    background-image: url(../images/sendButton.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: right;
+  }
+
+  .newChatButton {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .newChatButton img {
+    height: 80px;
+  }
+
+  .blur {
+      -webkit-filter: blur(3px);
+      -moz-filter: blur(3px);
+      -o-filter: blur(3px);
+      -ms-filter: blur(3px);
+      filter: blur(3px);
+  }
+}

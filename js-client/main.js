@@ -35,21 +35,21 @@ if ($(window).width() < 901) {
   $(document).ready(function() {
     //contact kolom openen en sluiten
     var contactColumn = $("#groupColumn");
-    var newChat = $(".newChat");
+    var newGroup = $(".newGroup");
     var toggleNewChat = true;
     var newChatButton = $(".newChatButton");
     var contactClose = $(".contactClose");
 
     $(document).mouseup(function(e) {
-      if (!newChat.is(e.target) && newChat.has(e.target).length === 0 && !contactColumn.is(e.target) && contactColumn.has(e.target).length === 0 && !toggleNewChat) {
+      if (!newGroup.is(e.target) && newGroup.has(e.target).length === 0 && !contactColumn.is(e.target) && contactColumn.has(e.target).length === 0 && !toggleNewChat) {
         hideContactColumn();
         hideNewChat();
       }
     })
 
     function hideNewChat() {
-      $.when(newChat.animate({"left": "-=70vw"})).then(function() {
-        newChat.css("visibility", "hidden")
+      $.when(newGroup.animate({"left": "-=70vw"})).then(function() {
+        newGroup.css("visibility", "hidden")
       });
       toggleNewChat = true;
     }
@@ -62,9 +62,9 @@ if ($(window).width() < 901) {
 
     newChatButton.click(function() {
         contactColumn.animate({"left": "+=70vw"});
-        newChat.animate({"left": "+=70vw"});
+        newGroup.animate({"left": "+=70vw"});
         contactColumn.css("visibility", "visible");
-        newChat.css("visibility", "visible");
+        newGroup.css("visibility", "visible");
         toggleNewChat = false;
     });
 
@@ -123,14 +123,14 @@ else {
     });
 
     //Groepmenu openen en sluiten
-    var newChat = $(".newChat");
+    var newGroup = $(".newGroup");
     var newChatButton = $(".newChatButton");
     var newChatImage = $("#newChatImage");
     var toggleNewChat = false;
 
     newChatButton.click(function() {
 
-      newChat.fadeToggle("fast");
+      newGroup.fadeToggle("fast");
       if (toggleNewChat) {
         newChatImage.animateStep({
           from: 45,
@@ -206,5 +206,12 @@ else {
       }
 
     });
+
+    $('#newGroupName').keypress(function(e) {
+      if (e.keyCode == 13) {
+        console.log(13)
+        e.preventDefault();
+      }
+    })
   });
 }

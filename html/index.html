@@ -2,14 +2,15 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
-  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="css/global.css" type="text/css" rel="stylesheet"/>
+  <link href="css/desktop.css" type="text/css" rel="stylesheet"/>
+  <link href="css/mobile.css" type="text/css" rel="stylesheet"/>
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="js/layout.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/io.js"></script>
 
@@ -21,21 +22,23 @@
 <body>
   <div class="container">
     <div class="header">
-      <script>$(".header").html(getHeader());</script>
+      <img src="images/greijdanusChatLogo.png"</img>
     </div>
 
     <div class="content">
       <div id="groupColumn">
-        <div id="groupTitle">
-          <h2>Chats</h2>
-          <button class="contactClose"><img src="../images/newChatClose.png"></img></button>
+        <div class="title">
+          <h2>Groepen</h2>
+          <button id="contactClose"><img src="../images/newChatClose.png"></img></button>
+        </div>
+        <div id="groups">
         </div>
       </div>
       <div id="chatColumn">
         <div id="chat"></div>
         <div id="chatBar">
-          <input id="message" type="text" />
-          <input id="sendMessage" type="button"/>
+          <button id="messageBox"/>
+          <button id="sendMessage"/>
         </div>
       </div>
       <div id="memberColumn"></div>
@@ -55,13 +58,20 @@
         <li><form action="/logout" method="post"><input type='submit' value='Log out'></form></li>
       </ul>
     </div>
-    <div class="newChat">
-      <input type="text" placeholder="Naam van de groep" id="newGroupName"/>
-      <input type="button" id="createNewGroup"/>
+    <div class="newGroup">
+      <textarea placeholder="Naam van de groep" maxlength="50" id="newGroupName"></textarea>
+      <button id="createNewGroup"></button>
     </div>
     <button class="newChatButton"><img id="newChatImage" src="images/plusButton.png"></img></button>
     <div id="copyright">
-      <script>$("#copyright").html(getCopyright());</script>
+      <ul>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+        <li>
+          <a href="https://www.greijdanus.nl">Greijdanus</a>
+        </li>
+      </ul>
     </div>
     <div id="editGroup">
       <input type="text" placeholder="voeg mensen toe" id="addMember"/>

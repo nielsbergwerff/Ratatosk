@@ -1,0 +1,193 @@
+@media screen and (max-width: 900px) {
+
+  .container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 15vh 85vh;
+    grid-template-areas:
+    "header header header header header"
+    "content content content content content";
+  }
+
+  .menu {
+    position: absolute;
+    grid-area: menu;
+    background-color: #f08521;
+    visibility: hidden;
+    width: 60vw;
+    right: -60vw;
+    top: 0;
+    height: 100vh;
+    -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+    box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+  }
+
+  .menuButton {
+    visibility: visible;
+    position: absolute;
+    width: 15vw;
+    right: 60vw;
+    top: 1vh;
+    padding: 0;
+  }
+
+  .menuButton img {
+    visibility: visible;
+    width: 15vw;
+  }
+
+  .menuTitle {
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, white, #f08521);
+    border-image-slice: 1;
+    border-style: none none solid none;
+  }
+
+  .header {
+    grid-area: header;
+    background-color: #01adc5;
+  }
+
+  .header img {
+    height: 12vh;
+    margin-top: 1.2vh;
+    margin-left: 2vw;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  #groupColumn {
+    width: 70vw;
+    height: 100vh;
+    position: absolute;
+    left: -70vw;
+    top: 0;
+    background-color: #f08521;
+    z-index: 1;
+    visibility: hidden;
+  }
+
+  #groupColumn div {
+    display: block;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, #f08521, white);
+    border-image-slice: 1;
+    border-style: none none solid none;
+    text-align: center;
+    margin: 0;
+  }
+
+  #groupColumn div p, h2 {
+    display: inline-block;
+  }
+
+  #groupColumn img {
+    float: right;
+    margin-right: 6px;
+    margin-top: 6px;
+    height: 40px;
+  }
+
+  .contactClose {
+    cursor: pointer;
+    position: absolute;
+    left: 55vw;
+    height: 68px;
+  }
+
+  .contactClose img {
+    height: 68px;
+    margin: 0;
+  }
+
+  .chatButton:hover {
+    cursor: pointer;
+  }
+
+  #chat {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 85vh;
+  }
+
+  #chatBar {
+    width: 87vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  #message {
+    width: calc(80% - 2px);
+    border: 1px solid black;
+    padding: 0;
+    height: 7vh;
+    padding-left: 2px;
+    background-image: linear-gradient(white, #EEEEEE);
+    font-size: 3vh;
+    border-radius: 6px;
+  }
+
+  #sendMessage {
+    width: 15%;
+    border: none;
+    padding: 0;
+    float: right;
+    height: 6vh;
+    margin-top: 0.5vh;
+    margin-right: 2.5%;
+    background-image: url("../images/sendButton.png");
+    background-color: transparent;
+    background-position: center center;
+    background-size: 7vh 7vh;
+    background-repeat: no-repeat;
+  }
+
+  .newGroup {
+    grid-area: newGroup;
+    height: 15vh;
+    width: 70vw;
+    position: absolute;
+    bottom: 0;
+    left: -70vw;
+    background-color: #f08521;
+    z-index: 2;
+    visibility: hidden;
+  }
+
+  .newGroup form {
+    width: 60vw;
+    margin-left: 5vw;
+  }
+
+  .newGroup form input {
+    width: 60vw;
+    height: 5vh;
+    padding-left: 6px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
+  .newChatButton {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 13vw;
+    padding: 0px;
+  }
+
+  #newChatImage {
+    height: 7vh;
+  }
+
+  #copyright {
+    display: none;
+  }
+}

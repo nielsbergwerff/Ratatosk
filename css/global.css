@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "Karbid";
+    src: url("Karbid-Normal.otf") format("opentype");
+}
+
+* {
+  outline:none;
+  font-family: "Karbid";
+}
+
+html { overflow-x: hidden; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+button:hover { cursor: pointer; }
+
+button::-moz-focus-inner { border:0; }
+
+li {
+  list-style-type: none;
+}
+
+textarea {
+  resize: none;
+  height: 1em;
+  width: 70ch;
+  overflow: hidden;
+}
+
+ul {
+  margin:0px;
+}

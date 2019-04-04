@@ -1,6 +1,6 @@
 $(function () {
 
-  var socket = io('localhost:80');
+  var socket = io('http://localhost:80');
 
   function setGroupButtonListener(){
     $('.setGroupButton').click(function(e){
@@ -27,9 +27,9 @@ $(function () {
 
   socket.on('set group list',groupList=>{
     socket.emit('set group',groupList[0])
-    $('#groupColumn').text('')
+    $('#groups').text('')
     for(var group of groupList)
-      $('#groupColumn').append($('<div id="'+group.ID+'">').html('<input type="button" class="groupSettings"/><p>'+group.Naam+'</p><img src="images/selectButton.png" class="setGroupButton"></img>'))
+      $('#groups').append($('<div id="'+group.ID+'">').html('<input type="button" class="groupSettings"/><p>'+group.Naam+'</p><button><img src="images/selectButton.png" class="setGroupButton"></img></button>'))
     setGroupButtonListener()
     setGroupSettingsListener()
   })
