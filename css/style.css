@@ -133,13 +133,14 @@ li {
 
   /*CONTENT*/
   .content {
-    width: 100%;
+    width: 100vw;
     height: 85vh;
     margin: 0px;
+    display: flex;
   }
 
   #groupColumn {
-    width: 20%;
+    width: 20vw;
     height: 85vh;
     background-color: white;
     float: left;
@@ -153,6 +154,7 @@ li {
     border-style: none none solid none;
     text-align: center;
     margin: 0;
+    text-overflow: ellipsis;
   }
 
   #groupColumn div p, h2 {
@@ -166,6 +168,19 @@ li {
     height: 40px;
   }
 
+  .groupSettings {
+    border: none;
+    background-image: url(../images/gearIcon.png);
+    background-position: center center;
+    background-color: transparent;
+    background-size: 3vh 3vh;
+    background-repeat: no-repeat;
+    height: 5vh;
+    width: 5vh;
+    float: left;
+    margin-left: 10px;
+  }
+
   .contactClose {
      display: none;
   }
@@ -175,8 +190,7 @@ li {
   }
 
   #chatColumn{
-    width:80vw;
-    margin-left: 20%;
+    width: 60vw;
     height: 85vh;
     border-left: 4px solid grey;
   }
@@ -204,7 +218,7 @@ li {
     font-size: 2vh;
   }
 
-  #sendMessage{
+  #sendMessage {
     width: 7%;
     height: 100%;
     border: none;
@@ -215,6 +229,14 @@ li {
     background-size: 5vh 5vh;
     background-repeat: no-repeat;
   }
+
+  #memberColumn {
+    width: 20vw;
+    height: 85vh;
+    border-color: grey;
+    border-left-style: solid;
+  }
+
 
   #editGroup{
     display: none;
@@ -233,9 +255,25 @@ li {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  #newGroupName,#createNewGroup {
-    position: relative;
-    left:4vw;
+  #newGroupName {
+    width: 70%;
+    height: 20%;
+    margin-top: 10%;
+    margin-left: 7.5%;
+  }
+
+  #createNewGroup {
+    border: none;
+    margin-right: 10%;
+    margin-top: 10%;
+    width: 4vh;
+    height: 4vh;
+    background-color: transparent;
+    background-size: 4vh 4vh;
+    background-image: url(../images/sendButton.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: right;
   }
 
   .newChatButton {
@@ -246,12 +284,6 @@ li {
 
   .newChatButton img {
     height: 80px;
-  }
-
-  #newGroupName {
-    width: 70%;
-    height: 20%;
-    margin-top: 10%;
   }
 
   .blur {
