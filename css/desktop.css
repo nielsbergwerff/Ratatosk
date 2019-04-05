@@ -1,6 +1,6 @@
 @media screen and (min-width: 901px) {
 
-  /*----LOGIN PAGINA----*/
+  /*LOGIN PAGINA*/
 
   #loginForm {
     margin: auto;
@@ -35,52 +35,24 @@
   .menu {
     float: right;
     width: 20%;
-    background-color: #f08521;
-    height: 100%;
-    position: absolute;
-    top: 0px;
     right: -20%;
     -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
     -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
     box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
     color: white;
-    visibility: hidden;
-  }
-
-  .menuTitle {
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to right, white, #f08521);
-    border-image-slice: 1;
-    border-style: none none solid none;
-  }
-
-  .menu h2 {
-    margin-left: 20px;
-    font-size: 30px;
-    display: inline-block;
-    margin-left: 20px;
   }
 
   .menuButton {
-    float: right;
-    margin-top: 15px;
     height: 70px;
-    padding: 0;
-    position: absolute;
     right: 19.5vw;
-    z-index: 1;
-    visibility: visible;
+    top: 15px;
   }
 
-  .menuButton img {
-    height: 70px;
-  }
+  .menu h2 { margin-left: 20px; }
 
   /*HEADER*/
   .header {
     height: 100px;
-    min-height: 60px;
-    background-color: #01adc5;
   }
 
   .header h1 {
@@ -111,75 +83,49 @@
   /*CONTENT*/
   .content {
     width: 100vw;
-    height: 85vh;
+    height: calc(100vh - 100px);
     margin: 0px;
     display: flex;
   }
 
+  /*GROUPS*/
   #groupColumn {
     width: 20vw;
-    height: 85vh;
+    min-width: 270px;
+    height: 100%;
     background-color: white;
     float: left;
   }
 
+  #groupTitle { height: 60px !important; }
+
   #groupColumn div {
-    display: block;
-    border-bottom: 2px solid transparent;
     border-image: linear-gradient(to right, white, grey);
-    border-image-slice: 1;
-    border-style: none none solid none;
-    text-align: center;
-    margin: 0;
-    text-overflow: ellipsis;
+    height: 54px;
   }
 
-  #groupColumn div p, h2 {
-    display: inline-block;
-  }
-
-  #groupColumn img {
-    float: right;
+  #groupColumn div button {
     margin-right: 6px;
     margin-top: 6px;
-    height: 40px;
   }
 
-  .groupSettings {
-    border: none;
-    background-image: url(../images/gearIcon.png);
-    background-position: center center;
-    background-color: transparent;
-    background-size: 3vh 3vh;
-    background-repeat: no-repeat;
-    height: 5vh;
-    width: 5vh;
-    float: left;
-    margin-left: 10px;
-  }
+  .setGroupButton { height: 40px; }
 
-  #groupTitle h2 {
-      margin-bottom: 10px;
-  }
+  .groupSettings { height: 40px; }
 
-  .contactClose {
-     display: none;
-  }
+  .groupSettings img { height: 100%; }
 
-  .chatButton:hover {
-    cursor: pointer;
-  }
+  #groupColumnClose { display: none; }
 
+  /*CHAT*/
   #chatColumn{
     width: 60vw;
-    height: 85vh;
+    height: 100%;
     border-left: 4px solid grey;
   }
 
   #chat {
-    height: 80vh;
-    background-color: white;
-    overflow-y: scroll;
+    height: calc(100% - 50px);
   }
 
   #chat > p {
@@ -187,17 +133,13 @@
   }
 
   #chatBar {
-    height: 5vh;
+    height: 50px;
   }
 
-  #message {
-    width: calc(93% - 6px);
-    border: none;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+  #messageBox {
+    width: calc(93% - 10px);
     height: calc(100% - 2px);
     padding-left: 5px;
-    font-size: 2vh;
   }
 
   #sendMessage {
@@ -205,27 +147,67 @@
     height: 100%;
     border: none;
     float: right;
-    background-image: url(../images/sendButton.png);
-    background-color: transparent;
-    background-position: center center;
-    background-size: 5vh 5vh;
-    background-repeat: no-repeat;
   }
 
+  /*DEELNEMERS*/
   #memberColumn {
     width: 20vw;
-    height: 85vh;
+    height: 100%;
     border-color: grey;
     border-left-style: solid;
   }
 
-  #editGroup{
+  #editGroup {
     display: none;
     position: absolute;
+    width: 20vw;
+    height: 100px;
+    background-color: #01adc5;
+  }
+
+  #addMember {
+    width: 55%;
+    margin-left: 10%;
+    margin-top: 10px;
+    height: 16px;
+  }
+
+  #addMemberButton {
+    height: 16px;
+    overflow: visible;
+    float: right;
+    margin-right: 15%;
+  }
+
+  #addMemberButton img {
+    height: 40px;
+  }
+
+  #deleteGroup {
+    width: 80%;
+    margin-top: 20px;
+    background-color: #f08521;
+    margin-left: 10%;
+    border: 1px solid black;
+  }
+
+  #deleteGroup p {
+    width: 80%;
+    display: inline-block;
+    margin: 0;
+    margin-top: 5px;
+  }
+
+  #deleteGroup img {
+    width: 10%;
+    float: right;
+    margin-right: 2%;
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
 
   /*NIEUWE GROEP*/
-  .newGroup {
+  #newGroup {
     display: none;
     position: absolute;
     bottom: 20px;
@@ -235,6 +217,11 @@
     background-color: #f08521;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+
+  #newGroupButton:hover {
+    cursor: pointer;
+  }
+
 
   #newGroupName {
     padding:10px;
@@ -256,13 +243,13 @@
     float: right;
   }
 
-  .newChatButton {
+  #newGroupButton {
     position: absolute;
     left: 20px;
     bottom: 20px;
   }
 
-  .newChatButton img {
+  #newGroupButton img {
     height: 80px;
   }
 

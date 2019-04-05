@@ -15,7 +15,7 @@
   <script type="text/javascript" src="js/io.js"></script>
 
   <title>Greijdanus Chat</title>
-  <link rel="shortcut icon" type="image/png" href="../images/greijdanus-icon.png" />
+  <link rel="shortcut icon" type="image/png" href="images/greijdanus-icon.png" />
 
 </head>
 
@@ -27,9 +27,9 @@
 
     <div class="content">
       <div id="groupColumn">
-        <div class="title">
+        <div id="groupTitle">
           <h2>Groepen</h2>
-          <button id="contactClose"><img src="../images/newChatClose.png"></img></button>
+          <button id="groupColumnClose"><img src="images/newChatClose.png"></img></button>
         </div>
         <div id="groups">
         </div>
@@ -37,11 +37,15 @@
       <div id="chatColumn">
         <div id="chat"></div>
         <div id="chatBar">
-          <button id="messageBox"/>
-          <button id="sendMessage"/>
+          <textarea id="messageBox"></textarea>
+          <button id="sendMessage"/><img src="images/sendButton.png"/><button>
         </div>
       </div>
-      <div id="memberColumn"></div>
+      <div id="memberColumn">
+        <div>
+          <h2>Groepsleden</h2>
+        </div>
+      </div>
     </div>
 
     <div class="menu">
@@ -50,28 +54,24 @@
         <h2>Menu</h2>
       </div>
       <ul>
-        <li>Optie 1</li>
-        <li>Optie 2</li>
-        <li>Optie 3</li>
-        <li>Optie 4</li>
-        <li><button class="copyrightButton">Test</button></li>
-        <li><form action="/logout" method="post"><input type='submit' value='Log out'></form></li>
+        <li><a href="https://mijn.greijdanus.nl/" target="_blank">Mijn Greijdanus</a></li>
+        <li><a href="https://natschool.greijdanus.nl/" target="_blank">Natschool</a></li>
+        <li><a href="https://rooster.greijdanus.nl/" target="_blank">Roosters</a></li>
+        <li><a href="https://herkansingssysteem.nl/" target="_blank">Herkansingssysteem</a></li>
+        <li><button class="copyrightButton">Copyright</button></li>
+        <li><form action="/logout" method="post"><input type='submit' value='Uitloggen'></form></li>
       </ul>
     </div>
-    <div class="newGroup">
-      <textarea placeholder="Naam van de groep" maxlength="50" id="newGroupName"></textarea>
+
+    <div id="newGroup">
+      <textarea placeholder="Naam van de groep" maxlength="20" id="newGroupName"></textarea>
       <button id="createNewGroup"></button>
     </div>
-    <button class="newChatButton"><img id="newChatImage" src="images/plusButton.png"></img></button>
-    <div id="copyright">
-      <ul>
-        <li>
-          <a href="contact.html">Contact</a>
-        </li>
-        <li>
-          <a href="https://www.greijdanus.nl">Greijdanus</a>
-        </li>
-      </ul>
+
+    <button id="newGroupButton"><img id="newGroupImage" src="images/plusButton.png"></img></button>
+
+    <div class="copyright">
+      <p>Copyright © 2019 Nathan van Goor, Niels Bergwerff en Arjen Palland. Alle rechten zijn voorbehouden. Niets van de op deze website gepubliceerde gegevens mag worden verveelvoudigd, opgeslagen in een geautomatiseerd gegevensbestand en/of openbaar worden gemaakt, in enige vorm of op enige wijze, hetzij elektronisch, mechanisch, door fotokopieën, opnamen of enige andere manier, zonder uitdrukkelijke voorafgaande schriftelijke toestemming van ons.</p>
     </div>
     <div id="editGroup">
       <input type="text" placeholder="voeg mensen toe" id="addMember"/>

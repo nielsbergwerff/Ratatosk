@@ -4,6 +4,7 @@ var editGroup;
 function setGroupSettingsListener(){
   $('.groupSettings').click(function(e){
     $('#editGroup').css('display','block').css('left',$(e.target).position().left).css('top',$(e.target).position().top);
+    $('#editGroup').css('left', '+=20vw');
     editGroup = $(e.target).parent().attr('id');
   })
 }
@@ -33,44 +34,44 @@ $.fn.extend({
 if ($(window).width() < 901) {
 
   $(document).ready(function() {
-    //contact kolom openen en sluiten
-    var contactColumn = $("#groupColumn");
-    var newGroup = $(".newGroup");
-    var toggleNewChat = true;
-    var newChatButton = $(".newChatButton");
-    var contactClose = $(".contactClose");
+    //groepen kolom openen en sluiten
+    var groupColumn = $("#groupColumn");
+    var newGroup = $("#newGroup");
+    var toggleNewGroup = true;
+    var newGroupButton = $("#newGroupButton");
+    var groupColumnClose = $("#groupColumnClose");
 
     $(document).mouseup(function(e) {
       if (!newGroup.is(e.target) && newGroup.has(e.target).length === 0 && !contactColumn.is(e.target) && contactColumn.has(e.target).length === 0 && !toggleNewChat) {
-        hideContactColumn();
-        hideNewChat();
+        hideGroupColumn();
+        hideNewGroup();
       }
     })
 
-    function hideNewChat() {
+    function hideNewGroup() {
       $.when(newGroup.animate({"left": "-=70vw"})).then(function() {
         newGroup.css("visibility", "hidden")
       });
-      toggleNewChat = true;
+      toggleNewGroup = true;
     }
 
-    function hideContactColumn() {
-      $.when(contactColumn.animate({"left": "-=70vw"})).then(function() {
-        contactColumn.css("visibility", "hidden")
+    function hideGroupColumn() {
+      $.when(groupColumn.animate({"left": "-=70vw"})).then(function() {
+        groupColumn.css("visibility", "hidden")
       });
     }
 
-    newChatButton.click(function() {
-        contactColumn.animate({"left": "+=70vw"});
+    newGroupButton.click(function() {
+        groupColumn.animate({"left": "+=70vw"});
         newGroup.animate({"left": "+=70vw"});
-        contactColumn.css("visibility", "visible");
+        groupColumn.css("visibility", "visible");
         newGroup.css("visibility", "visible");
-        toggleNewChat = false;
+        toggleNewGroup = false;
     });
 
-    contactClose.click(function() {
-      hideContactColumn();
-      hideNewChat();
+    groupColumnClose.click(function() {
+      hideGroupColumn();
+      hideNewGroup();
     });
   });
 }
@@ -78,7 +79,7 @@ if ($(window).width() < 901) {
 else {
   $(document).ready(function() {
 
-    $('#message').keypress(e=>{if(e.keyCode==13)$('#sendMessage').trigger('click')});
+    $('#messageBox').keypress(e=>{if(e.keyCode==13)$('#sendMessage').trigger('click')});
 
     //Menu openen en sluiten
     var menu = $(".menu");
@@ -123,33 +124,33 @@ else {
     });
 
     //Groepmenu openen en sluiten
-    var newGroup = $(".newGroup");
-    var newChatButton = $(".newChatButton");
-    var newChatImage = $("#newChatImage");
-    var toggleNewChat = false;
+    var newGroup = $("#newGroup");
+    var newGroupButton = $("#newGroupButton");
+    var newGroupImage = $("#newGroupImage");
+    var toggleNewGroup = false;
 
-    newChatButton.click(function() {
+    newGroupButton.click(function() {
 
       newGroup.fadeToggle("fast");
-      if (toggleNewChat) {
-        newChatImage.animateStep({
+      if (toggleNewGroup) {
+        newGroupImage.animateStep({
           from: 45,
           to: 0,
           step: $.fn.rotate
         });
-        toggleNewChat = false;
+        toggleNewGroup = false;
       } else {
-        newChatImage.animateStep({
+        newGroupImage.animateStep({
           from: 0,
           to: 45,
           step: $.fn.rotate
         });
-        toggleNewChat = true;
+        toggleNewGroup = true;
       }
     });
 
     var copyrightButton = $(".copyrightButton");
-    var copyright = $("#copyright");
+    var copyright = $(".copyright");
     var copyrightToggle = true;
 
     // Generic function to set blur radius of $ele
@@ -207,7 +208,7 @@ else {
 
     });
 
-    $('#newGroupName').keypress(function(e) {
+    $('textarea').keypress(function(e) {
       if (e.keyCode == 13) {
         console.log(13)
         e.preventDefault();

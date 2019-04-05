@@ -1,5 +1,8 @@
 @media screen and (max-width: 900px) {
 
+  /*LOGIN PAGINA*/
+
+  /*INDEX.HTML*/
   .container {
     display: grid;
     width: 100vw;
@@ -12,56 +15,46 @@
     "content content content content content";
   }
 
+  /*MENU*/
   .menu {
-    position: absolute;
     grid-area: menu;
-    background-color: #f08521;
-    visibility: hidden;
-    width: 60vw;
-    right: -60vw;
-    top: 0;
-    height: 100vh;
+    width: 80vw;
+    right: -80vw;
     -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
     -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
     box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
   }
 
   .menuButton {
-    visibility: visible;
-    position: absolute;
-    width: 15vw;
-    right: 60vw;
+    right: 80vw;
+    height: 12vh;
+    min-height: 32px;
+    max-height: 16vw;
     top: 1vh;
-    padding: 0;
   }
 
-  .menuButton img {
-    visibility: visible;
-    width: 15vw;
-  }
+  .menuButton img { visibility: visible; }
 
-  .menuTitle {
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to right, white, #f08521);
-    border-image-slice: 1;
-    border-style: none none solid none;
-  }
-
+  /*HEADER*/
   .header {
     grid-area: header;
-    background-color: #01adc5;
+    min-height: 40px;
+    max-height: 20vw;
   }
 
   .header img {
-    height: 12vh;
+    height: 80%;
     margin-top: 1.2vh;
     margin-left: 2vw;
   }
 
-  .content {
-    grid-area: content;
-  }
+  /*COPYRIGHT*/
+  .copyright { display: none; }
 
+  /*CONTENT*/
+  .content { grid-area: content; }
+
+  /*GROUPS*/
   #groupColumn {
     width: 70vw;
     height: 100vh;
@@ -73,84 +66,71 @@
     visibility: hidden;
   }
 
-  #groupColumn div {
-    display: block;
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to right, #f08521, white);
-    border-image-slice: 1;
-    border-style: none none solid none;
-    text-align: center;
-    margin: 0;
-  }
+  #groupColumn div { border-image: linear-gradient(to right, #f08521, white); }
 
-  #groupColumn div p, h2 {
-    display: inline-block;
-  }
+  #groupColumn div p { width: calc(100% - 100px); }
 
-  #groupColumn img {
-    float: right;
-    margin-right: 6px;
-    margin-top: 6px;
+  #groupColumn button {
+    margin: 5px;
     height: 40px;
   }
 
-  .contactClose {
+  #groupColumn img { height: 100%;}
+
+  .groupColumnClose {
     cursor: pointer;
     position: absolute;
     left: 55vw;
     height: 68px;
   }
 
-  .contactClose img {
+  .groupColumnClose img {
     height: 68px;
     margin: 0;
   }
 
-  .chatButton:hover {
-    cursor: pointer;
-  }
-
+  /*CHAT*/
   #chat {
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    height: 85vh;
+    height: calc(85vh - 50px);
   }
 
   #chatBar {
-    width: 87vw;
+    height: 50px;
+    width: 100%;
     position: absolute;
     bottom: 0;
     right: 0;
   }
 
-  #message {
-    width: calc(80% - 2px);
+  #messageBox {
+    width: calc(100% - 145px);
     border: 1px solid black;
     padding: 0;
     height: 7vh;
     padding-left: 2px;
+    margin-left: 70px;
     background-image: linear-gradient(white, #EEEEEE);
     font-size: 3vh;
     border-radius: 6px;
   }
 
-  #sendMessage {
-    width: 15%;
+  #sendMessage, #newGroupButton {
     border: none;
     padding: 0;
-    float: right;
-    height: 6vh;
-    margin-top: 0.5vh;
-    margin-right: 2.5%;
-    background-image: url("../images/sendButton.png");
-    background-color: transparent;
-    background-position: center center;
-    background-size: 7vh 7vh;
-    background-repeat: no-repeat;
+    height: 50px;
+    margin: 10px;
+    margin-top: 0;
+    margin-bottom: 1px;
   }
 
-  .newGroup {
+  #sendMessage { float: right; }
+
+  /*DEELNEMERS*/
+  #memberColumn { display: none; }
+
+  /*NIEUWE GROEP*/
+  #newGroup {
     grid-area: newGroup;
     height: 15vh;
     width: 70vw;
@@ -162,12 +142,12 @@
     visibility: hidden;
   }
 
-  .newGroup form {
+  #newGroup form {
     width: 60vw;
     margin-left: 5vw;
   }
 
-  .newGroup form input {
+  #newGroup form input {
     width: 60vw;
     height: 5vh;
     padding-left: 6px;
@@ -175,19 +155,11 @@
     border: 1px solid black;
   }
 
-  .newChatButton {
+  #newGroupButton {
+    float: left;
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 13vw;
     padding: 0px;
-  }
-
-  #newChatImage {
-    height: 7vh;
-  }
-
-  #copyright {
-    display: none;
   }
 }

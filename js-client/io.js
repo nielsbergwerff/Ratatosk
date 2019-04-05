@@ -9,8 +9,8 @@ $(function () {
   }
 
   $('#sendMessage').click(function(e){
-    socket.emit('chat message', $('#message').val());
-    $('#message').val('');
+    socket.emit('chat message', $('#messageBox').val());
+    $('#messageBox').val('');
   });
 
   $('#createNewGroup').click(function(e){
@@ -29,14 +29,14 @@ $(function () {
     socket.emit('set group',groupList[0])
     $('#groups').text('')
     for(var group of groupList)
-      $('#groups').append($('<div id="'+group.ID+'">').html('<input type="button" class="groupSettings"/><p>'+group.Naam+'</p><button><img src="images/selectButton.png" class="setGroupButton"></img></button>'))
+      $('#groups').append($('<div id="'+group.ID+'">').html('<button class="groupSettings"><img src="images/gearIcon.png"/></button><p>'+group.Naam+'</p><button><img src="images/selectButton.png" class="setGroupButton"></img></button>'))
     setGroupButtonListener()
     setGroupSettingsListener()
   })
 
   socket.on('set member list',memberList=>{
-    $('#memberColumn').text('')
-    for(var member of memberList)$('#memberColumn').append($('<div>').text(member))
+    $('#members').text('')
+    for(var member of memberList)$('#members').append($('<p>').text(member))
   })
 
   socket.on('set group',group=>{
@@ -54,7 +54,7 @@ $(function () {
   })
 
   socket.on('add member',user=>{
-    $('#memberColumn').append($('<div>').text(user))
+    $('#members').append($('<p>').text(user))
   })
 
   socket.on('delete group',group=>{

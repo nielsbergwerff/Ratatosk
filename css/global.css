@@ -8,7 +8,7 @@
   font-family: "Karbid";
 }
 
-html { overflow-x: hidden; }
+html { overflow: hidden; }
 
 a {
   color: inherit;
@@ -35,6 +35,10 @@ button:hover { cursor: pointer; }
 
 button::-moz-focus-inner { border:0; }
 
+button img{
+  height: 100%;
+}
+
 li {
   list-style-type: none;
 }
@@ -48,4 +52,82 @@ textarea {
 
 ul {
   margin:0px;
+}
+
+h2 {
+  font-size: 30px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/*MENU*/
+.menu {
+  position: absolute;
+  top:0;
+  background-color: #f08521;
+  visibility: hidden;
+  height: 100vh;
+}
+
+.menuTitle {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, white, #f08521);
+  border-image-slice: 1;
+  border-style: none none solid none;
+}
+
+.menuButton {
+  visibility: visible;
+  position: absolute;
+  padding: 0;
+}
+
+.menu ul li {
+  margin-bottom: 10px;
+}
+
+.menu ul li * {
+  color: white;
+  font-size: 20px;
+}
+
+.menu ul li *:hover {
+  text-decoration: underline;
+}
+
+.menu ul li form input {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/*HEADER*/
+.header { background-color: #01adc5; }
+
+/*GROEPEN*/
+#groupColumn, #chat, #memberColumn { overflow-y: scroll; }
+
+#groupColumn div {
+  display: block;
+  border-bottom: 2px solid transparent;
+  border-image-slice: 1 !important;
+  text-align: center;
+  margin: 0;
+}
+
+#groupColumn div p {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#groupColumn div button { float: right; }
+
+.groupSettings { float: left !important; }
+
+/*CHAT*/
+#messageBox {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
 }
