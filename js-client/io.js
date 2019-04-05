@@ -54,8 +54,8 @@ $(function () {
   })
 
   socket.on('add member',user=>{
-    $('#members').append($('<p>').text(user))
-  })
+      $('#members').append($('<p class="member">' + user + '</p>'))
+    })
 
   socket.on('delete group',group=>{
     $('#'+group).remove()
