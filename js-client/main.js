@@ -124,6 +124,15 @@ else {
       }
     });
 
+    //Groepopties sluiten als weggeklikt wordt
+    var groupSettings = $("#editGroup");
+
+    $(document).mouseup(function(e) {
+      if (!groupSettings.is(e.target) && groupSettings.has(e.target).length === 0) {
+        groupSettings.hide();
+      }
+    });
+
     //Groepmenu openen en sluiten
     var newGroup = $("#newGroup");
     var newGroupButton = $("#newGroupButton");
