@@ -4,8 +4,14 @@ $(function () {
 
   function setGroupButtonListener(){
     $('.setGroupButton').click(function(e){
-      socket.emit('set group',$(e.target).parent().attr('id'));
+      socket.emit('set group',$(e.target).parent().parent().attr('id'));
     });
+  }
+
+  function setRemoveMemberListener(){
+    $('.removeMemberButton').click(function(e){
+      socket.emit('remove member',$(e.target).parent().parent().attr('id'))
+    })
   }
 
   $('#sendMessage').click(function(e){
@@ -14,7 +20,8 @@ $(function () {
   });
 
   $('#createNewGroup').click(function(e){
-    socket.emit('add group',$('#newGroupName').val());
+    if($('#newGroupName').val()!='')socket.emit('add group',$('#newGroupName').val());
+    $('newGroupName').val('');
   });
 
   $('#addMemberButton').click(function(e){
@@ -35,8 +42,10 @@ $(function () {
   })
 
   socket.on('set member list',memberList=>{
-    $('#members').text('')
-    for(var member of memberList)$('#members').append($('<p>').text(member))
+    $('#members').html($('<div id="'+memberList[0]+'">').html('<p class="member">'+memberList[0]+'</p>'))
+    memberList.shift()
+    for(var member of memberList)$('#members').append($('<div id="'+member+'">').html('<p class="member">'+member+'</p><button class="removeMemberButton"><img src="images/minusButton.png"/></button>'))
+    setRemoveMemberListener()
   })
 
   socket.on('set group',group=>{
@@ -53,13 +62,18 @@ $(function () {
     $('#chat').append($('<p>').text(msg))
   })
 
-  socket.on('add member',user=>{
-    $('#members').append($('<p>').text(user))
+  socket.on('add member',member=>{
+    $('#members').append($('<div id="'+member+'">').html('<p class="member">'+member+'</p><button class="removeMemberButton"><img src="images/minusButton.png"/></button>'))
+    setRemoveMemberListener()
   })
 
   socket.on('delete group',group=>{
     $('#'+group).remove()
     hideGroupSettings()
+  })
+
+  socket.on('remove member',member=>{
+    $('#'+member).remove()
   })
 
 })

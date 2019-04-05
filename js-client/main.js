@@ -5,7 +5,7 @@ function setGroupSettingsListener(){
   $('.groupSettings').click(function(e){
     $('#editGroup').css('display','block').css('left',$(e.target).position().left).css('top',$(e.target).position().top);
     $('#editGroup').css('left', '+=20vw');
-    editGroup = $(e.target).parent().attr('id');
+    editGroup = $(e.target).parent().parent().attr('id');
   })
 }
 
@@ -80,6 +80,7 @@ else {
   $(document).ready(function() {
 
     $('#messageBox').keypress(e=>{if(e.keyCode==13)$('#sendMessage').trigger('click')});
+    $('#newGroupName').keypress(e=>{if(e.keyCode==13)$('#createNewGroup').trigger('click')});
 
     //Menu openen en sluiten
     var menu = $(".menu");

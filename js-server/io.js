@@ -12,7 +12,7 @@ io.on('connection',(socket)=>{
 
   socket.on('set group',group=>{
     db.getGroup(group,result=>{
-      if(result) group = result
+      if(result!=null) group = result
       socket.request.session.group = group
       io.emit('set group',group)
       db.getMemberList(socket.request.session.user,group.ID,result=>{
@@ -46,6 +46,11 @@ io.on('connection',(socket)=>{
   socket.on('delete group', group=>{
     db.removeGroup(socket.request.session.user,group)
     socket.emit('delete group',group)
+  })
+
+  socket.on('remove member', member=>{
+    db.removeMember(socket.request.session.user,socket.request.session.group.ID,member)
+    socket.emit('remove member')
   })
 })
 }

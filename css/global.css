@@ -35,9 +35,7 @@ button:hover { cursor: pointer; }
 
 button::-moz-focus-inner { border:0; }
 
-button img{
-  height: 100%;
-}
+button img { height: 100%; }
 
 li {
   list-style-type: none;
@@ -46,7 +44,7 @@ li {
 textarea {
   resize: none;
   height: 1em;
-  width: 70ch;
+  width: 28ch;
   overflow: hidden;
 }
 
@@ -105,7 +103,7 @@ h2 {
 .header { background-color: #01adc5; }
 
 /*GROEPEN*/
-#groupColumn, #chat, #memberColumn { overflow-y: scroll; }
+#groupColumn, #chat, #memberColumn { overflow-y: scroll; overflow-x: hidden;}
 
 #groupColumn div {
   display: block;

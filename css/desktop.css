@@ -134,6 +134,7 @@
 
   #chatBar {
     height: 50px;
+    background-color: #EEEEEE;
   }
 
   #messageBox {
@@ -157,12 +158,25 @@
     border-left-style: solid;
   }
 
-  #editGroup {
-    display: none;
-    position: absolute;
+  #memberColumnTitle, .member {
     width: 20vw;
-    height: 100px;
-    background-color: #01adc5;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to left, white, grey);
+    border-image-slice: 1;
+    border-style: none none solid none;
+  }
+
+  .member {
+    margin: 0;
+    padding-bottom: 10px;
+    width: calc(100% - 50px);
+    display: inline-block;
+  }
+
+  .removeMemberButton{
+    height: 40px;
+    margin-top:10px;
   }
 
   #addMember {
@@ -182,7 +196,13 @@
   #addMemberButton img {
     height: 40px;
   }
-
+  #editGroup {
+    display: none;
+    position: absolute;
+    width: 20vw;
+    height: 100px;
+    background-color: #01adc5;
+  }
   #deleteGroup {
     width: 80%;
     margin-top: 20px;
@@ -212,8 +232,8 @@
     position: absolute;
     bottom: 20px;
     left: 20px;
-    width: 30vw;
-    height: 20vh;
+    width: 450px;
+    height: 90px;
     background-color: #f08521;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -222,24 +242,17 @@
     cursor: pointer;
   }
 
-
   #newGroupName {
     padding:10px;
-    margin-top: 10%;
-    margin-left: 7.5%;
+    margin-top: 25px;
+    margin-left: 100px;
   }
 
   #createNewGroup {
     border: none;
-    margin-right: 10%;
-    margin-top: 10%;
-    width: 4vh;
-    height: 4vh;
-    background-color: transparent;
-    background-size: 4vh 4vh;
-    background-image: url(../images/sendButton.png);
-    background-position: center center;
-    background-repeat: no-repeat;
+    margin-right: 5px;
+    margin-top: 15px;
+    height: 60px;
     float: right;
   }
 
@@ -247,10 +260,7 @@
     position: absolute;
     left: 20px;
     bottom: 20px;
-  }
-
-  #newGroupButton img {
-    height: 80px;
+    height: 90px;
   }
 
   .blur {

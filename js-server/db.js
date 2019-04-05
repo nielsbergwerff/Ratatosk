@@ -189,6 +189,23 @@ function removeGroup(user,group){
   Groepen.destroy({ where: { ID: group, EigenaarsID: user }})
 }
 
+function removeMember(owner,group,member){
+  GroepsLeden.destroy({
+    where: {
+      GebruikersID: member,
+      GroepsID: group
+    },
+    include: [
+      {
+        model: Groepen,
+        where: {
+          EigenaarsID: owner
+        }
+      }
+    ]
+  })
+}
+
 exports.sequelize = sequelize
 exports.findUser = findUser
 exports.getGroupList = getGroupList
@@ -199,3 +216,4 @@ exports.addGroup = addGroup
 exports.addGroupMember = addGroupMember
 exports.getMemberList = getMemberList
 exports.removeGroup = removeGroup
+exports.removeMember = removeMember
