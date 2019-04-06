@@ -164,11 +164,11 @@ function getGroup(group,cb){
   Groepen.findOne({ where: { ID: group }}).then((group)=>{cb(group)})
 }
 
-function addGroup(user,name){
+function addGroup(user,name,cb){
   Groepen.create({
     Naam: name,
     EigenaarsID: user
-  })
+  }).then(group=>{cb(group)})
 }
 
 function addGroupMember(owner,user,group,isAdmin){

@@ -1,6 +1,6 @@
 $(function () {
 
-  var socket = io('http://localhost:80');
+  var socket = io('192.168.178.76:80');
 
   function setGroupButtonListener(){
     $('.setGroupButton').click(function(e){
@@ -26,6 +26,7 @@ $(function () {
 
   $('#addMemberButton').click(function(e){
     socket.emit('add member',$('#addMember').val(),editGroup,0)
+    $('#addMember').val('')
   });
 
   $('#deleteGroup').click(function(e){
@@ -60,6 +61,11 @@ $(function () {
 
   socket.on('chat message',msg=>{
     $('#chat').append($('<p>').text(msg))
+  })
+
+  socket.on('add group',group=>{
+    $('#groups').append($('<div id="'+group.ID+'">').html('<button class="groupSettings"><img src="images/gearIcon.png"/></button><p>'+group.Naam+'</p><button><img src="images/selectButton.png" class="setGroupButton"></img></button>'))
+    setGroupSettingsListener()
   })
 
   socket.on('add member',member=>{

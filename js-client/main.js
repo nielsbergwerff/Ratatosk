@@ -13,6 +13,11 @@ function hideGroupSettings(){
   $('#editGroup').css('display','none')
 }
 
+//function om texten te verzenden door middel van 'enter'
+function textEnter(textElement,buttonElement){
+  $(textElement).keypress(e=>{if(e.keyCode==13)$(buttonElement).trigger('click')});
+}
+
 $.fn.extend({
   animateStep: function(options) {
     return this.each(function() {
@@ -79,9 +84,10 @@ if ($(window).width() < 901) {
 else {
   $(document).ready(function() {
 
-    $('#messageBox').keypress(e=>{if(e.keyCode==13)$('#sendMessage').trigger('click')});
-    $('#newGroupName').keypress(e=>{if(e.keyCode==13)$('#createNewGroup').trigger('click')});
-
+    textEnter('#messageBox','#sendMessage')
+    textEnter('#newGroupName','#createNewGroup')
+    textEnter('#addMember','#addMemberButton')
+    
     //Menu openen en sluiten
     var menu = $(".menu");
     var menuButton = $(".menuButton");
@@ -193,7 +199,7 @@ else {
       };
 
     function hideCopyright() {
-      tweenBlur('.container > *:not(#copyright):not(.menu)', 3, 0);
+      tweenBlur('.container > *:not(.copyright):not(.menu)', 3, 0);
       copyright.slideToggle();
       copyrightButton.animate({
         "bottom": "-=10vh"
@@ -205,7 +211,7 @@ else {
     copyrightButton.click(function() {
 
       if (copyrightToggle) {
-        tweenBlur('.container > *:not(#copyright):not(.menu)', 0, 3);
+        tweenBlur('.container > *:not(.copyright):not(.menu)', 0, 3);
         copyright.slideToggle();
         copyrightButton.animate({
           "bottom": "+=10vh"
