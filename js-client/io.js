@@ -34,7 +34,7 @@ $(function () {
   })
 
   socket.on('set group list',groupList=>{
-    socket.emit('set group',groupList[0])
+    if(groupList[0])socket.emit('set group',groupList[0])
     $('#groups').text('')
     for(var group of groupList)
       $('#groups').append($('<div id="'+group.ID+'">').html('<button class="groupSettings"><img src="images/gearIcon.png"/></button><p>'+group.Naam+'</p><button><img src="images/selectButton.png" class="setGroupButton"></img></button>'))
@@ -50,11 +50,11 @@ $(function () {
   })
 
   socket.on('set group',group=>{
-    $('#chat').text('')
     socket.emit('get messages')
   })
 
   socket.on('get messages',messages=>{
+    $('#chat').text('')
     for (var message of messages)
       $('#chat').append($('<p>').text(message.AuteursID+": "+message.Bericht))
   })
@@ -66,6 +66,7 @@ $(function () {
   socket.on('add group',group=>{
     $('#groups').append($('<div id="'+group.ID+'">').html('<button class="groupSettings"><img src="images/gearIcon.png"/></button><p>'+group.Naam+'</p><button><img src="images/selectButton.png" class="setGroupButton"></img></button>'))
     setGroupSettingsListener()
+    setGroupButtonListener()
   })
 
   socket.on('add member',member=>{
@@ -82,4 +83,7 @@ $(function () {
     $('#'+member).remove()
   })
 
+  socket.on('remove group',group=>{
+    $('#'+group).remove()
+  })
 })

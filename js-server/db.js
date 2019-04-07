@@ -51,6 +51,21 @@ Gebruikers.belongsToMany(Groepen, {through: GroepsLeden, foreignKey: 'Gebruikers
 Groepen.belongsToMany(Gebruikers, {through: GroepsLeden, foreignKey: 'GroepsID'})
 Groepen.hasMany(Berichten,{foreignKey: 'GroepsID',as: 'berichten'})
 Berichten.belongsTo(Groepen,{foreignKey: 'GroepsID'})
+Groepen.hasMany(GroepsLeden,{foreignKey: 'GroepsID'})
+GroepsLeden.belongsTo(Groepen,{foreignKey: 'GroepsID'})
+Gebruikers.hasMany(GroepsLeden,{foreignKey: 'GebruikersID'})
+GroepsLeden.belongsTo(Gebruikers,{foreignKey: 'GebruikersID'})
+
+function isAdmin(user,group,cb){
+  Groepen.findOne({
+    where: {
+      ID: group,
+      EigenaarsID: user
+    }
+  }).then(result=>{
+    if(result)return cb(false)
+  })
+}
 
 function getMemberGroups(user,cb){
   Groepen.findAll({
@@ -171,13 +186,15 @@ function addGroup(user,name,cb){
   }).then(group=>{cb(group)})
 }
 
-function addGroupMember(owner,user,group,isAdmin){
+function addGroupMember(owner,user,group,isAdmin,cb){
   getGroupList(owner,list=>{
     for(var item in list)if(item.ID=group){
       GroepsLeden.create({
         GebruikersID: user,
         GroepsID: group,
         isBeheerder: isAdmin
+      }).then(result=>{
+        if(result)cb(false)
       }).catch(err=>{
         console.log(err)
       })
@@ -185,24 +202,25 @@ function addGroupMember(owner,user,group,isAdmin){
   })
 }
 
-function removeGroup(user,group){
+function removeGroup(user,group,cb){
   Groepen.destroy({ where: { ID: group, EigenaarsID: user }})
+    .then(result=>{
+      if(result)cb(false)
+    })
 }
 
-function removeMember(owner,group,member){
-  GroepsLeden.destroy({
-    where: {
-      GebruikersID: member,
-      GroepsID: group
-    },
-    include: [
-      {
-        model: Groepen,
+function removeMember(owner,group,member,cb){
+  isAdmin(owner,group,err=>{
+    if(!err){
+      GroepsLeden.destroy({
         where: {
-          EigenaarsID: owner
+          GebruikersID: member,
+          GroepsID: group
         }
-      }
-    ]
+      }).then(result=>{
+        if(result)cb(false)
+      })
+    }
   })
 }
 

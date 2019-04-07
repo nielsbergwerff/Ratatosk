@@ -43,20 +43,31 @@ io.on('connection',socket=>{
   })
 
   socket.on('add member', (user,group,isAdmin)=>{
-    db.addGroupMember(socket.request.session.user,user,group,isAdmin)
-    socket.emit('add member',user)
-    console.log(socket.rooms)
-    db.getGroup(group,result=>{io.to(user).emit('add group',result)})
+    db.addGroupMember(socket.request.session.user,user,group,isAdmin,err=>{
+      if(!err){
+        socket.emit('add member',user)
+        db.getGroup(group,result=>{io.to(user).emit('add group',result)})
+      }
+    })
   })
 
   socket.on('delete group', group=>{
-    db.removeGroup(socket.request.session.user,group)
-    io.emit('delete group',group)
+    db.removeGroup(socket.request.session.user,group,err=>{
+      if(!err)io.emit('delete group',group)
+    })
   })
 
   socket.on('remove member', member=>{
-    db.removeMember(socket.request.session.user,socket.request.session.group.ID,member)
-    socket.emit('remove member')
+    db.removeMember(socket.request.session.user,socket.request.session.group.ID,member,err=>{
+      if(!err){
+        io.to('g'+socket.request.session.group.ID).emit('remove member', member)
+        io.to(member).emit('remove group',socket.request.session.group.ID)
+        io.in(member).clients((err,client)=>{
+          io.to(client).emit('set member list',[''])
+          io.to(client).emit('get messages')
+        })
+      }
+    })
   })
 })
 }
