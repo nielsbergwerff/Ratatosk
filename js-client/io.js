@@ -1,6 +1,6 @@
 $(function () {
 
-  var socket = io('192.168.178.76:80');
+  var socket = io('localhost:80');
 
   function setGroupButtonListener(){
     $('.setGroupButton').click(function(e){
