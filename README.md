@@ -7,7 +7,7 @@ Leerlingen:
 - Niels Bergwerff
 
 
-##EXE Installer Instructies
+## EXE Installer Instructies
 1. Installeer [NodeJS](https://nodejs.org/en/)
 2. Installeer [NSIS](https://nsis.sourceforge.io/Main_Page)
 3. Ga naar 'Configuratiescherm\Systeem en beveiliging\Systeem'
@@ -21,14 +21,14 @@ Leerlingen:
 Je hebt nu een Ratatosk Installer.exe in je Ratatosk project folder klaar om gedistributeerd te worden.
 De volgende keer is alleen stap 9 vereist (tenzij er iets verwijderd/veranderd wordt).
 
-##Server Run Instructies:
+## Server Run Instructies:
 1. Installeer [NodeJS](https://nodejs.org/en/)
 2. Dubbelklik op 'INSTALL SERVER.bat'
 5. Dubbelklik op 'RUN SERVER.bat'
 
 De volgende keer is alleen stap 3 vereist (tenzij er iets verwijderd/veranderd wordt).
 
-##Android Instructies:
+## Android Instructies:
 1. Installeer [Android Studio](https://developer.android.com/studio)
 2. In Android Studio ga naar File > Settings... > Build, Execution, Deployment > Instant Run
 3. Verwijder het vinkje bij 'Enable Instant Run to hot swap code/resource changes on deplay (default enabled)' en druk op 'OK'
