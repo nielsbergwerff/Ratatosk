@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ratatosk</string>
+    <string name="loading">Aan het laden...</string>
+    <string name="url_error">Er kan geen verbinding gemaakt worden met de server. Probeer het later opnieuw.</string>
+</resources>
