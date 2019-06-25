@@ -1,7 +1,6 @@
 @media screen and (min-width: 901px) {
 
   /*LOGIN PAGINA*/
-
   #loginForm {
     margin: auto;
     width: calc(15vw + 200px);
@@ -134,13 +133,13 @@
 
   #chatBar {
     height: 50px;
-    background-color: #EEEEEE;
   }
 
   #messageBox {
     width: calc(93% - 10px);
-    height: calc(100% - 2px);
+    height: calc(100% - 10px);
     padding-left: 5px;
+    margin: 5px;
   }
 
   #sendMessage {

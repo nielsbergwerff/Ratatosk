@@ -35,6 +35,7 @@ $.fn.extend({
     return this.css("transform", "rotate(" + value + "deg)");
   }
 });
+
 //Mobiel
 if ($(window).width() < 901) {
 
@@ -47,7 +48,7 @@ if ($(window).width() < 901) {
     var groupColumnClose = $("#groupColumnClose");
 
     $(document).mouseup(function(e) {
-      if (!newGroup.is(e.target) && newGroup.has(e.target).length === 0 && !contactColumn.is(e.target) && contactColumn.has(e.target).length === 0 && !toggleNewChat) {
+      if (!newGroup.is(e.target) && newGroup.has(e.target).length === 0 && !groupColumn.is(e.target) && groupColumn.has(e.target).length === 0 && !toggleNewGroup) {
         hideGroupColumn();
         hideNewGroup();
       }
@@ -78,6 +79,32 @@ if ($(window).width() < 901) {
       hideGroupColumn();
       hideNewGroup();
     });
+
+    var menu = $(".menu");
+    var menuButton = $(".menuButton");
+    var toggleMenu = true;
+
+    function hideMenu() {
+      $.when(menu.animate({
+        "right": "-=20vw"
+      })).then(function() {
+        menu.css("visibility", "hidden")
+      });
+      menuButton.animate({
+        "right": "-=0.5vw"
+      });
+      toggleMenu = true;
+      $(document).off("mouseup");
+    }
+
+    function mouseUp(object, xFunction, object1) {
+      $(document).mouseup(function(e) {
+        if (!object.is(e.target) && object.has(e.target).length === 0 && !object1.is(e.target) && object1.has(e.target.length === 0)) {
+          xFunction();
+        }
+      });
+    }
+
   });
 }
 //Desktop
@@ -87,7 +114,7 @@ else {
     textEnter('#messageBox','#sendMessage')
     textEnter('#newGroupName','#createNewGroup')
     textEnter('#addMember','#addMemberButton')
-    
+
     //Menu openen en sluiten
     var menu = $(".menu");
     var menuButton = $(".menuButton");

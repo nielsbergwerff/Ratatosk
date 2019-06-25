@@ -67,7 +67,7 @@ io.use((socket, next)=>{
     session(socket.request, socket.request.res, next);
 });
 
-//zet de server praktisch gezien aan
+//de server zoekt naar requests van clients op de ingestelde port
 http.listen(config.port,()=>{
   console.log(`listening on *:${config.port}`);
 });

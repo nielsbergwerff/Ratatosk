@@ -1,3 +1,9 @@
+@viewport {
+  width: device-width;
+  height: device-height;
+  zoom: 1.0 ;
+}
+
 @font-face {
     font-family: "Karbid";
     src: url("Karbid-Normal.otf") format("opentype");
@@ -8,7 +14,14 @@
   font-family: "Karbid";
 }
 
-html { overflow: hidden; }
+html, body, .container {
+  position: fixed;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 a {
   color: inherit;
@@ -19,10 +32,8 @@ a:hover {
   text-decoration: underline;
 }
 
-body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+input {
+  border: 1px solid;
 }
 
 button {
@@ -63,7 +74,6 @@ h2 {
   position: absolute;
   top:0;
   background-color: #f08521;
-  visibility: hidden;
   height: 100vh;
 }
 
@@ -76,6 +86,7 @@ h2 {
 
 .menuButton {
   visibility: visible;
+  display: block;
   position: absolute;
   padding: 0;
 }
@@ -126,6 +137,5 @@ h2 {
 
 /*CHAT*/
 #messageBox {
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+  border: 1px solid black;
 }
