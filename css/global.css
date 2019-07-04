@@ -12,29 +12,21 @@
 * {
   outline:none;
   font-family: "Karbid";
+  color: inherit;
 }
 
-html, body, .container {
+html, body, #container {
   position: fixed;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { text-decoration: none;}
 
-a:hover {
-  text-decoration: underline;
-}
-
-input {
-  border: 1px solid;
-}
+a:hover { text-decoration: underline;}
 
 button {
   background: transparent;
@@ -44,13 +36,19 @@ button {
 
 button:hover { cursor: pointer; }
 
-button::-moz-focus-inner { border:0; }
+/*button::-moz-focus-inner { border:0; }*/
 
 button img { height: 100%; }
 
-li {
-  list-style-type: none;
+h2 {
+  font-size: 30px;
+  display: inline-block;
+  margin-top: 10px;
 }
+
+input { border: 1px solid;}
+
+li { list-style-type: none;}
 
 textarea {
   resize: none;
@@ -63,55 +61,61 @@ ul {
   margin:0px;
 }
 
-h2 {
-  font-size: 30px;
-  display: inline-block;
-  margin-top: 10px;
+/*LOGIN PAGINA*/
+#loginForm {
+  margin: auto;
+  width: calc(15vw + 200px);
+  text-align: center;
+  margin-top: calc(30vh - 50px);
 }
 
 /*MENU*/
-.menu {
+#menu {
+  height: 100vh;
   position: absolute;
   top:0;
   background-color: #f08521;
-  height: 100vh;
 }
 
-.menuTitle {
+#menuTitle {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, white, #f08521);
   border-image-slice: 1;
   border-style: none none solid none;
 }
 
-.menuButton {
+#menuButton {
   visibility: visible;
   display: block;
   position: absolute;
   padding: 0;
+  overflow: hidden;
 }
 
-.menu ul li {
+#menu * {
+  color: white;
+}
+
+#menu ul li {
   margin-bottom: 10px;
 }
 
-.menu ul li * {
-  color: white;
+#menu ul li * {
   font-size: 20px;
 }
 
-.menu ul li *:hover {
+#menu ul li *:hover {
   text-decoration: underline;
 }
 
-.menu ul li form input {
+#menu ul li form input {
   background-color: transparent;
   border: none;
   padding: 0;
 }
 
 /*HEADER*/
-.header { background-color: #01adc5; }
+#header { background-color: #01adc5; }
 
 /*GROEPEN*/
 #groupColumn, #chat, #memberColumn { overflow-y: scroll; overflow-x: hidden;}

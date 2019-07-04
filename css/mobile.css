@@ -31,7 +31,7 @@
   }
 
   /*INDEX.HTML*/
-  .container {
+  #container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 15vh 85vh;
@@ -41,7 +41,7 @@
   }
 
   /*MENU*/
-  .menu {
+  #menu {
     grid-area: menu;
     width: 80vw;
     right: -80vw;
@@ -50,7 +50,7 @@
     box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
   }
 
-  .menuButton {
+  #menuButton {
     right: 80vw;
     height: 12vh;
     min-height: 32px;
@@ -58,27 +58,27 @@
     top: 1vh;
   }
 
-  .menuButton img { visibility: visible; }
+  #menuButton img { visibility: visible; }
 
   /*HEADER*/
-  .header {
+  #header {
     grid-area: header;
     height: 15vh;
     min-height: 4px;
     max-height: 20vw;
   }
 
-  .header img {
+  #header img {
     height: 80%;
     margin-top: 1.2vh;
     margin-left: 2vw;
   }
 
   /*COPYRIGHT*/
-  .copyright { display: none; }
+  #copyright { display: none; }
 
   /*CONTENT*/
-  .content { grid-area: content; }
+  #content { grid-area: content; }
 
   /*GROUPS*/
   #groupColumn {
@@ -103,14 +103,14 @@
 
   #groupColumn img { height: 100%;}
 
-  .groupColumnClose {
+  #groupColumnClose {
     cursor: pointer;
     position: absolute;
     left: 55vw;
     height: 68px;
   }
 
-  .groupColumnClose img {
+  #groupColumnClose img {
     height: 68px;
     margin: 0;
   }
