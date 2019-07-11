@@ -1,6 +1,6 @@
 @viewport {
-  width: device-width;
   height: device-height;
+  width: device-width;
   zoom: 1.0 ;
 }
 
@@ -13,6 +13,7 @@
   outline:none;
   font-family: "Karbid";
   color: inherit;
+  font-size: 20px;
 }
 
 html, body, #container {
@@ -41,9 +42,9 @@ button:hover { cursor: pointer; }
 button img { height: 100%; }
 
 h2 {
-  font-size: 30px;
   display: inline-block;
-  margin-top: 10px;
+  height: 36px;
+  font-size: 30px;
 }
 
 input { border: 1px solid;}
@@ -51,9 +52,9 @@ input { border: 1px solid;}
 li { list-style-type: none;}
 
 textarea {
-  resize: none;
   height: 1em;
   width: 28ch;
+  resize: none;
   overflow: hidden;
 }
 
@@ -61,12 +62,64 @@ ul {
   margin:0px;
 }
 
+/*HEADER*/
+#header {
+  height: 12vh;
+  min-height: 32px;
+  max-height: 100px;
+  width: calc(100vw - 10px);
+  background-color: #01adc5;
+  padding: 10px;
+}
+
+#header img { height: 100%;}
+
+/*!!AFHANKELIJK VAN DE AFBEELDING
+max width: max-height in px * img-width / img-height + 2 * padding
+max height: (100vw - 2 * padding) * img-height / img-width */
+@media (max-width: 440.88px) {
+  #header { max-height: calc(23.76vw - 4.76px);}
+  #loginContent { min-height: calc(100vh - 23.76vw - 15.24px);}}
+
+#loginContent {
+  position: absolute;
+  bottom: 0;
+  height: calc(100vh - 120px);
+  width: 100vw;
+  margin:0;
+}
+
+@media (max-height: 833.33px) {
+  #loginContent { height: calc(88vh - 20px);}
+  @media (max-height: calc(84px + 51vh + 3em)) {
+   #loginContent { overflow-y: scroll;}}}
+@media (max-height: 266.67px) {
+  #loginContent { height: calc(100vh - 52px);}
+  @media (max-height: calc(116px + 39vh + 3em)) {
+   #loginContent { overflow-y: scroll;}}}
+
+
 /*LOGIN PAGINA*/
 #loginForm {
-  margin: auto;
   width: calc(15vw + 200px);
-  text-align: center;
+  margin: auto;
   margin-top: calc(30vh - 50px);
+  text-align: center;
+}
+
+#loginForm h2 { margin: 15px;}
+
+#loginForm input {
+  height: calc(1em + 4px + 3vh);
+  width: calc(100% - 12px);
+  margin: 4px;
+  padding: 2px;
+  padding-left: 8px;
+}
+
+#loginForm input[type="submit"] {
+  width: 100%;
+  border: 2px solid black;
 }
 
 /*MENU*/
@@ -113,9 +166,6 @@ ul {
   border: none;
   padding: 0;
 }
-
-/*HEADER*/
-#header { background-color: #01adc5; }
 
 /*GROEPEN*/
 #groupColumn, #chat, #memberColumn { overflow-y: scroll; overflow-x: hidden;}

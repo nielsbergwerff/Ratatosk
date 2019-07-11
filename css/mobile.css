@@ -1,35 +1,5 @@
 @media screen and (max-width: 900px) {
 
-  /*LOGIN PAGINA*/
-  #loginForm {
-    margin: auto;
-    width: calc(15vw + 200px);
-    text-align: center;
-    margin-top: calc(30vh - 50px);
-  }
-
-  #loginForm form {
-    height: 100%;
-  }
-
-  #loginForm input {
-    width: 99%;
-    height: calc(1em + 4px + 3vh);
-    padding: 2px;
-    margin-left: 0.5%;
-    margin-top: 8px;
-    padding-left: 16px;
-    font-size: 20px;
-  }
-
-  #loginForm input[type="text"], #loginForm input[type="password"] {
-    width: calc(99% - 16px);
-  }
-
-  #loginForm input[type="submit"] {
-    border: 2px solid black;
-  }
-
   /*INDEX.HTML*/
   #container {
     display: grid;
@@ -61,18 +31,7 @@
   #menuButton img { visibility: visible; }
 
   /*HEADER*/
-  #header {
-    grid-area: header;
-    height: 15vh;
-    min-height: 4px;
-    max-height: 20vw;
-  }
-
-  #header img {
-    height: 80%;
-    margin-top: 1.2vh;
-    margin-left: 2vw;
-  }
+  #header { grid-area: header;}
 
   /*COPYRIGHT*/
   #copyright { display: none; }
