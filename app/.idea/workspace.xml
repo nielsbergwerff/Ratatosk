@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9fdf886-ada0-4bc0-9600-394e27662d30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/desktop.css" beforeDir="false" afterPath="$PROJECT_DIR$/../css/desktop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/../css/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../css/mobile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../js-client/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../js-client/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../js-server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../js-server/server.js" afterDir="false" />
-    </list>
+    <list default="true" id="c9fdf886-ada0-4bc0-9600-394e27662d30" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/../.gradle/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/build/generated/not_namespaced_r_class_sources/" />

@@ -1,5 +1,5 @@
 //Toelichting is gegeven op een basis niveau zodat mensen zonder kennis van Node-JS zich nog een beetje wegwijs kunnen maken
-//Hieronder staan alle gebruikte modules(open-source libraries) van dit bestand
+//Hieronder staan alle gebruikte modules(open-source) van dit bestand
 const express = require('express'),
       app = require('express')(),
       http = require('http').Server(app),

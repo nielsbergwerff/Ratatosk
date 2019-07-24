@@ -7,7 +7,6 @@ function getGroupList(socket){
 }
 
 io.on('connection',socket=>{
-
   socket.join(socket.request.session.user)
   getGroupList(socket)
 
