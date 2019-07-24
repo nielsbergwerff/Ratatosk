@@ -16,7 +16,7 @@
   font-size: 20px;
 }
 
-html, body, #container {
+html, body {
   position: fixed;
   overflow: hidden;
   height: 100vh;
@@ -37,7 +37,7 @@ button {
 
 button:hover { cursor: pointer; }
 
-/*button::-moz-focus-inner { border:0; }*/
+button::-moz-focus-inner { border:0; }
 
 button img { height: 100%; }
 
@@ -58,18 +58,16 @@ textarea {
   overflow: hidden;
 }
 
-ul {
-  margin:0px;
-}
+ul { margin:0px;}
 
 /*HEADER*/
 #header {
   height: 12vh;
   min-height: 32px;
   max-height: 100px;
-  width: calc(100vw - 10px);
-  background-color: #01adc5;
+  width: calc(100vw - 20px);
   padding: 10px;
+  background-color: #01adc5;
 }
 
 #header img { height: 100%;}
@@ -79,31 +77,33 @@ max width: max-height in px * img-width / img-height + 2 * padding
 max height: (100vw - 2 * padding) * img-height / img-width */
 @media (max-width: 440.88px) {
   #header { max-height: calc(23.76vw - 4.76px);}
-  #loginContent { min-height: calc(100vh - 23.76vw - 15.24px);}}
+  #content { min-height: calc(100vh - 23.76vw - 15.24px);}}
 
-#loginContent {
+/*CONTENT*/
+#content {
   position: absolute;
   bottom: 0;
   height: calc(100vh - 120px);
   width: 100vw;
   margin:0;
+  display: grid;
+  grid-template-areas:
+    'groups chat members'
 }
 
 @media (max-height: 833.33px) {
-  #loginContent { height: calc(88vh - 20px);}
-  @media (max-height: calc(84px + 51vh + 3em)) {
-   #loginContent { overflow-y: scroll;}}}
+  #content { height: calc(88vh - 20px);}}
 @media (max-height: 266.67px) {
-  #loginContent { height: calc(100vh - 52px);}
-  @media (max-height: calc(116px + 39vh + 3em)) {
-   #loginContent { overflow-y: scroll;}}}
-
+  #content { height: calc(100vh - 52px);}}
+@media (max-height: calc(143px + 51vh)) {
+   #content { overflow-y: scroll;}}
 
 /*LOGIN PAGINA*/
 #loginForm {
-  width: calc(15vw + 200px);
-  margin: auto;
-  margin-top: calc(30vh - 50px);
+  grid-column: 1 / 4;
+  width: calc(9vw + 300px);
+  max-width: calc(100vw - 8px);
+  margin: calc(30vh - 50px) auto 0;
   text-align: center;
 }
 
@@ -111,66 +111,84 @@ max height: (100vw - 2 * padding) * img-height / img-width */
 
 #loginForm input {
   height: calc(1em + 4px + 3vh);
-  width: calc(100% - 12px);
+  width: calc(100% - 20px);
   margin: 4px;
   padding: 2px;
   padding-left: 8px;
 }
 
 #loginForm input[type="submit"] {
-  width: 100%;
+  width: calc(100% - 8px);
   border: 2px solid black;
 }
 
 /*MENU*/
 #menu {
-  height: 100vh;
   position: absolute;
   top:0;
+  right: -350px;
+  height: 100vh;
+  width: 20vw;
+  min-width: 250px;
+  max-width: 350px;
+  color: white;
   background-color: #f08521;
+  -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+  box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 1750px) {
+  #menu { right: -20vw;}}
+@media (max-width: 1250px) {
+  #menu { right: -250px;}}
+
+#menuButton {
+  position: fixed;
+  top: 7px;
+  right: 0;
+  height: calc(12vh + 6px);
+  min-height: 38px;
+  max-height: 106px;
+  transition: transform linear 0.2s;
 }
 
 #menuTitle {
+  padding-left: 20px;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, white, #f08521);
   border-image-slice: 1;
-  border-style: none none solid none;
+  border-style: none none solid;
 }
 
-#menuButton {
-  visibility: visible;
-  display: block;
-  position: absolute;
-  padding: 0;
-  overflow: hidden;
-}
+#menu ul { padding-left: 10px;}
 
-#menu * {
-  color: white;
-}
+#menu ul li { margin: 10px;}
 
-#menu ul li {
-  margin-bottom: 10px;
-}
-
-#menu ul li * {
-  font-size: 20px;
-}
+#menu ul li * { font-size: 20px;}
 
 #menu ul li *:hover {
   text-decoration: underline;
+  cursor: pointer;
+}
+
+#menu ul li form:hover {
+  text-decoration: none;
+  cursor: default;
 }
 
 #menu ul li form input {
+  padding: 0;
   background-color: transparent;
   border: none;
-  padding: 0;
 }
 
 /*GROEPEN*/
-#groupColumn, #chat, #memberColumn { overflow-y: scroll; overflow-x: hidden;}
+#groupColumn, #chatColumn, #memberColumn { overflow-y: hidden; overflow-x: hidden;}
 
-#groupColumn div {
+#newGroupImage { transition-duration: 0.4s;}
+
+#groupTitle, #groups div {
   display: block;
   border-bottom: 2px solid transparent;
   border-image-slice: 1 !important;
@@ -178,14 +196,14 @@ max height: (100vw - 2 * padding) * img-height / img-width */
   margin: 0;
 }
 
-#groupColumn div p {
+#groups p {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-#groupColumn div button { float: right; }
+#groups button { float: right; }
 
 .groupSettings { float: left !important; }
 

@@ -1,37 +1,17 @@
 @media screen and (max-width: 900px) {
 
-  /*INDEX.HTML*/
-  #container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 15vh 85vh;
-    grid-template-areas:
-    "header header header header header"
-    "content content content content content";
-  }
-
-  /*MENU*/
-  #menu {
-    grid-area: menu;
-    width: 80vw;
-    right: -80vw;
-    -webkit-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
-    -moz-box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
-    box-shadow: -15px 0px 12px -10px rgba(0, 0, 0, 0.18);
-  }
-
-  #menuButton {
-    right: 80vw;
-    height: 12vh;
-    min-height: 32px;
-    max-height: 16vw;
-    top: 1vh;
-  }
-
-  #menuButton img { visibility: visible; }
-
   /*HEADER*/
   #header { grid-area: header;}
+
+  /*MENU*/
+  #menu { grid-area: menu;}
+
+  @media (min-height: 833.34px) {
+    #menuButton { transform: translateX(126.22px);}}
+  @media (min-height: 266.67px) and (max-height: 833.33px) {
+    #menuButton { transform: translateX(calc(14.06vh + 9.03px));}}
+  @media (max-height: 266.66px) {
+    #menuButton { transform: translateX(46.53px);}}
 
   /*COPYRIGHT*/
   #copyright { display: none; }
