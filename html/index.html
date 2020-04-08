@@ -7,6 +7,7 @@
   <link href="css/global.css" type="text/css" rel="stylesheet"/>
   <link href="css/desktop.css" type="text/css" rel="stylesheet"/>
   <link href="css/mobile.css" type="text/css" rel="stylesheet"/>
+  <link href="dist/css/perfect-scrollbar.css" type="text/css" rel="stylesheet"/>
   <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery-ui.min.js"></script>
@@ -22,6 +23,28 @@
 <body>
 <div id="header">
   <img src="images/greijdanusChatLogo.png"></img>
+</div>
+
+<div id="menu">
+  <button id="menuButton"><img src="images/menuButton.png"></img></button>
+  <div id="menuTitle">
+    <h2>Menu</h2>
+  </div>
+  <ul>
+    <li><a href="https://mijn.greijdanus.nl/" target="_blank">Mijn Greijdanus</a></li>
+    <li><a href="https://natschool.greijdanus.nl/" target="_blank">Natschool</a></li>
+    <li><a href="https://rooster.greijdanus.nl/" target="_blank">Roosters</a></li>
+    <li><a href="https://herkansingssysteem.nl/" target="_blank">Herkansingssysteem</a></li>
+    <li><button id="copyrightButton">Copyright</button></li>
+    <li><form action="/logout" method="post"><input type='submit' value='Uitloggen'></form></li>
+  </ul>
+</div>
+
+<div id="copyright">
+  <p>Copyright © 2019 Nathan van Goor, Niels Bergwerff en Arjen Palland.
+    Alle rechten zijn voorbehouden.
+
+    Niets van de op deze website gepubliceerde gegevens mag worden verveelvoudigd, opgeslagen in een geautomatiseerd gegevensbestand en/of openbaar worden gemaakt, in enige vorm of op enige wijze, hetzij elektronisch, mechanisch, door fotokopieën, opnamen of enige andere manier, zonder uitdrukkelijke voorafgaande schriftelijke toestemming van ons.</p>
 </div>
 
 <div id="content">
@@ -48,21 +71,6 @@
   </div>
 </div>
 
-<div id="menu">
-  <button id="menuButton"><img src="images/menuButton.png"></img></button>
-  <div id="menuTitle">
-    <h2>Menu</h2>
-  </div>
-  <ul>
-    <li><a href="https://mijn.greijdanus.nl/" target="_blank">Mijn Greijdanus</a></li>
-    <li><a href="https://natschool.greijdanus.nl/" target="_blank">Natschool</a></li>
-    <li><a href="https://rooster.greijdanus.nl/" target="_blank">Roosters</a></li>
-    <li><a href="https://herkansingssysteem.nl/" target="_blank">Herkansingssysteem</a></li>
-    <li><button id="copyrightButton">Copyright</button></li>
-    <li><form action="/logout" method="post"><input type='submit' value='Uitloggen'></form></li>
-  </ul>
-</div>
-
 <div id="newGroup">
   <textarea placeholder="Naam van de groep" maxlength="20" id="newGroupName"></textarea>
   <button id="createNewGroup"><img src="images/sendButton.png"/></button>
@@ -70,9 +78,6 @@
 
 <button id="newGroupButton"><img id="newGroupImage" src="images/plusButton.png"></img></button>
 
-<div id="copyright">
-  <p>Copyright © 2019 Nathan van Goor, Niels Bergwerff en Arjen Palland. Alle rechten zijn voorbehouden. Niets van de op deze website gepubliceerde gegevens mag worden verveelvoudigd, opgeslagen in een geautomatiseerd gegevensbestand en/of openbaar worden gemaakt, in enige vorm of op enige wijze, hetzij elektronisch, mechanisch, door fotokopieën, opnamen of enige andere manier, zonder uitdrukkelijke voorafgaande schriftelijke toestemming van ons.</p>
-</div>
 <div id="editGroup">
   <input type="text" placeholder="voeg mensen toe" id="addMember"/>
   <input type="button" value=">" id="addMemberButton"/></br>

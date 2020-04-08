@@ -12,7 +12,7 @@ const config = require('../config.json'),
 
 //const Op = Sequelize.Op
 
-var runSync = function() {
+var waitForDBModelInitialazation = function() {
   var done = false
   auto.run(()=>{done = true })
   deasync.loopWhile(function(){return !done })
@@ -49,7 +49,7 @@ Gebruikers.hasMany(Berichten,{foreignKey: 'AuteursID'})
 Berichten.belongsTo(Gebruikers,{foreignKey: 'AuteursID'})
 Gebruikers.belongsToMany(Groepen, {through: GroepsLeden, foreignKey: 'GebruikersID'})
 Groepen.belongsToMany(Gebruikers, {through: GroepsLeden, foreignKey: 'GroepsID'})
-Groepen.hasMany(Berichten,{foreignKey: 'GroepsID',as: 'berichten'})
+Groepen.hasMany(Berichten,{foreignKey: 'GroepsID', as: 'berichten'})
 Berichten.belongsTo(Groepen,{foreignKey: 'GroepsID'})
 Groepen.hasMany(GroepsLeden,{foreignKey: 'GroepsID'})
 GroepsLeden.belongsTo(Groepen,{foreignKey: 'GroepsID'})
@@ -116,7 +116,9 @@ function getGroupList( user, cb ){
     getOwnerGroups(user,groups=>{
       for(j=0; j<groups.length; j++) output[i+j] = groups[j]
         output.sort((a,b)=>{
-          if(a.berichten[0]&&b.berichten[0]&&a.berichten[0].dataValues.Tijd<b.berichten[0].dataValues.Tijd)return 1
+          if (a.berichten[0] && b.berichten[0] &&
+              a.berichten[0].dataValues.Tijd < b.berichten[0].dataValues.Tijd
+          ) return 1
           else if(b.berichten[0]) return 1
           return -1
         })

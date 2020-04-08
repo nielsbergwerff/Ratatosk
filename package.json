@@ -12,18 +12,20 @@
     "deasync": "^0.1.15",
     "express": "^4.17.1",
     "express-mysql-session": "^2.1.0",
-    "helmet": "^3.19.0",
+    "helmet": "^3.22.0",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
     "perfect-scrollbar": "^1.4.0",
-    "sequelize": "^5.10.1",
+    "sequelize": "^5.21.6",
     "sequelize-auto": "^0.4.29",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
+    "browserify": "^16.5.1",
     "nwjs-builder-phoenix": "^1.15.0"
   },
   "scripts": {
+    "build": "browserify js-client/main.js js-client/io.js -o bundle.js",
     "dist": "build --tasks win-x86 --mirror https://dl.nwjs.io/ .",
     "start": "run --x86 --mirror https://dl.nwjs.io/ ."
   },

@@ -39,18 +39,19 @@ function blurElement(element, size) {
     'mozFilter':filterVal,
     'oFilter':filterVal,
     'msFilter':filterVal,
-    'transition':'all 0.5s ease-out',
-    '-webkit-transition':'all 0.5s ease-out',
-    '-moz-transition':'all 0.5s ease-out',
-    '-o-transition':'all 0.5s ease-out'
+    'transition':'all 0.2s ease-out',
+    '-webkit-transition':'all 0.2s ease-out',
+    '-moz-transition':'all 0.2s ease-out',
+    '-o-transition':'all 0.2s ease-out'
   })
-  $(element).delay(500).queue(()=>{
+  $(element).delay(500).queue(next=>{
     $(element).css({
       'transition':'',
       '-webkit-transition':'',
       '-moz-transition':'',
       '-o-transition':''
     })
+    next()
   })
 }
 
@@ -86,7 +87,7 @@ $(document).ready(()=>{
   function toggleCopyright() {
     var height = (toggle_copyright ? 1 : -1) * 10
     blurElement('body > *:not(#copyright):not(#menu)', 3*toggle_copyright)
-    copyright.slideToggle()
+    copyright.slideToggle(200)
     copyrightButton.animate({'bottom': `+=${height}vh`})
     toggle_copyright=!toggle_copyright
     setMouseUp()

@@ -16,9 +16,6 @@
   /*COPYRIGHT*/
   #copyright { display: none; }
 
-  /*CONTENT*/
-  #content { grid-area: content; }
-
   /*GROUPS*/
   #groupColumn {
     width: 70vw;

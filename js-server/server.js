@@ -11,10 +11,10 @@ const express = require('express'),
       expressSession = require('express-session'),
       connectSessionSequelize = require('connect-session-sequelize'),
       //Eigen module
-      db = require('./db');
+      db = require('./db')
 
 //Configuratie waardes worden geïmporteerd
-const config = require('../config.json');
+const config = require('../config.json')
 
 //De session-opties worden gespecificeerd
 const session = expressSession({
@@ -36,43 +36,43 @@ const session = expressSession({
     //tijd dat de cookie geldig is
     expires: 16 * 60 * 60 * 1000
   }
-});
+})
 
 //echte folders worden toegewezen aan virtuele folders
-app.use('/js',express.static('../js-client'));
-app.use('/css',express.static('../css'));
-app.use('/images',express.static('../images'));
+app.use('/js',express.static('../js-client'))
+app.use('/css',express.static('../css'))
+app.use('/images',express.static('../images'))
 //post data wordt op req.body gezet
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }))
 //bescherming
-app.use(helmet());
+app.use(helmet())
 //logs
-app.use(morgan('dev'));
-app.use(cookieParser());
-app.use(session);
+app.use(morgan('dev'))
+app.use(cookieParser())
+app.use(session)
 
 //andere eigen modules die nu pas gebruikt moeten worden
 const routing = require('./routing')(app,db),
-      myIo = require('./io')(io,db);
+      myIo = require('./io')(io,db)
 
 //zo cookie op moeten ruimen als de session verlopen is
 //NIET GETEST
 app.use((req, res, next)=>{
-  if (req.cookies.user_sid && !req.session.user)res.clearCookie('user_sid');
-  next();
-});
+  if (req.cookies.user_sid && !req.session.user)res.clearCookie('user_sid')
+  next()
+})
 
 //verbindt socket.io met sessie
 io.use((socket, next)=>{
-    session(socket.request, socket.request.res, next);
+    session(socket.request, socket.request.res, next)
 });
 
 //de server zoekt naar requests van clients op de ingestelde port
-http.listen(config.port,()=>{
-  console.log(`listening on *:${config.port}`);
-});
+http.listen(config.port, ()=>{
+  console.log(`listening on *:${config.port}`)
+})
 
 //stuurt 404.html bij een 404-error
 app.use(function (req, res, next) {
   res.status(404).sendFile('404.html',{root:'../html'})
-});
+})

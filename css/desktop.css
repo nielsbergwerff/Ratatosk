@@ -3,18 +3,6 @@
   /*MENU*/
   #menuButton { transform: translateX(0px);}
 
-  /*COPYRIGHT*/
-  #copyright {
-    height:90vh;
-    width:40vw;
-    background-color: #f9fbff;
-    position:fixed;
-    display:none;
-    left:30vw;
-    bottom:0vh;
-    z-index: 1;
-  }
-
   /*GROUPS*/
   #groupColumn {
     width: 20vw;
