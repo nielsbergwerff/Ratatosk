@@ -1,22 +1,5 @@
 const config = require('../config.json'),
-      deasync = require('deasync'),
-      SequelizeAuto = require('sequelize-auto'),
-      Sequelize = require('sequelize'),
-      auto = new SequelizeAuto(config.database,config.user,config.password, {
-        port: config.databasePort,
-        logging: false,
-        additional:{
-          timestamps: false
-        }
-      })
-
-//const Op = Sequelize.Op
-
-var waitForDBModelInitialazation = function() {
-  var done = false
-  auto.run(()=>{done = true })
-  deasync.loopWhile(function(){return !done })
-}()
+      Sequelize = require('sequelize')
 
 var sequelize = new Sequelize(config.database, config.user, config.password, {
   host: config.databaseHost,
@@ -36,9 +19,9 @@ sequelize
   .then(() => {
     console.log('Connection has been established successfully.')
   })
-.catch(err => {
+  .catch(err => {
   console.error('Unable to connect to the database:', err)
-})
+  })
 
 const Gebruikers = sequelize.import('./models/gebruikers'),
       Berichten = sequelize.import('./models/berichten'),

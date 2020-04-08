@@ -6,6 +6,10 @@ COPY NUL js-server\models\gebruikers.js
 COPY NUL js-server\models\groepen.js
 COPY NUL js-server\models\groepsleden.js
 
+CD js-server
+node initDB.js
+CD ..
+
 IF NOT EXIST config.json (
 	ECHO {>config.json
 	ECHO  "port": ,>>config.json
