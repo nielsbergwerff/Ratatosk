@@ -1,5 +1,5 @@
-# Ratatosk
-Informatica PO V6
+# Ratatosk (nu privé)
+Informatica PO V6 
 
 Leerlingen:
 - Arjen Palland
