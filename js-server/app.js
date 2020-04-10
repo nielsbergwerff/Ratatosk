@@ -63,10 +63,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-// Alternatively could be done in a single line, but that requires moving files
-app.use('/js', express.static('../js-client'))
-app.use('/css', express.static('../css'))
-app.use('/images', express.static('../images'))
+app.use('/', express.static('../public'))
 
 app.use('/', router)
 
