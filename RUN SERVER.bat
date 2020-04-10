@@ -1,3 +1,4 @@
-cd js-server
-node server.js
-pause
+:SERVER
+node js-server/server.js
+GOTO SERVER
+PAUSE

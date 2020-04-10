@@ -5,7 +5,7 @@ module.exports = function(app,db){
 //zo ja wordt hij naar de chatomgeving gestuurd
 //zo niet wordt hij naar de loginpagina gestuurd
 app.get('/',(req,res)=>{
-  if(req.session.loggedIn==='true')res.sendFile('index.html',{root:'../html'})
+  if(req.session.loggedIn === 'true') res.sendFile('index.html', {root:'../html'})
   else res.redirect('/login')
 })
 
