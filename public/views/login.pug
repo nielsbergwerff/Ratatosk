@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    |   
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    |   
+    link(href='css/global.css', type='text/css', rel='stylesheet')
+    |   
+    link(href='css/desktop.css', type='text/css', rel='stylesheet')
+    |   
+    link(href='css/mobile.css', type='text/css', rel='stylesheet')
+    |   
+    link(href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css', rel='stylesheet')
+    |   
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js')
+    |   
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+    |   
+    script(type='text/javascript', src='js/main.js')
+    |   
+    title Greijdanus Chat
+    |   
+    link(rel='shortcut icon', type='image/png', href='../images/greijdanus-icon.png')
+  body
+    #header
+      img(src='images/greijdanusChatLogo.png', <='', img='')
+    |   
+    #content
+      #loginForm
+        h2 Inloggen
+        | &#x9;    
+        form(action='/login', method='post')
+          input(type='text', name='username')
+          |         
+          input(type='password', name='password')
+          |         
+          input(type='submit')

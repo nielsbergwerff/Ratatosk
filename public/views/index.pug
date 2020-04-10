@@ -1,0 +1,102 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    |
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    |
+    link(href='css/global.css', type='text/css', rel='stylesheet')
+    |
+    link(href='css/desktop.css', type='text/css', rel='stylesheet')
+    |
+    link(href='css/mobile.css', type='text/css', rel='stylesheet')
+    |
+    link(href='dist/css/perfect-scrollbar.css', type='text/css', rel='stylesheet')
+    |
+    link(href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css', rel='stylesheet')
+    |
+    script(type='text/javascript', src='js/jquery.min.js')
+    |
+    script(type='text/javascript', src='js/jquery-ui.min.js')
+    |
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    |
+    script(type='text/javascript', src='js/main.js')
+    |
+    script(type='text/javascript', src='js/io.js')
+    |
+    title Greijdanus Chat
+    |
+    link(rel='shortcut icon', type='image/png', href='images/greijdanus-icon.png')
+  body
+    #header
+      img(src='images/greijdanusChatLogo.png')
+    #menu
+      button#menuButton
+        img(src='images/menuButton.png')
+      |
+      #menuTitle
+        h2 Menu
+      |
+      ul
+        li
+          a(href='https://mijn.greijdanus.nl/', target='_blank') Mijn Greijdanus
+        |
+        li
+          a(href='https://natschool.greijdanus.nl/', target='_blank') Natschool
+        |
+        li
+          a(href='https://rooster.greijdanus.nl/', target='_blank') Roosters
+        |
+        li
+          a(href='https://herkansingssysteem.nl/', target='_blank') Herkansingssysteem
+        |
+        li
+          button#copyrightButton Copyright
+        |
+        li
+          form(action='/logout', method='post')
+            input(type='submit', value='Uitloggen')
+    #copyright
+      p
+        | Copyright &copy; 2019 Nathan van Goor, Niels Bergwerff en Arjen Palland.
+        | Alle rechten zijn voorbehouden.
+        | Niets van de op deze website gepubliceerde gegevens mag worden verveelvoudigd, opgeslagen in een geautomatiseerd gegevensbestand en/of openbaar worden gemaakt, in enige vorm of op enige wijze, hetzij elektronisch, mechanisch, door fotokopie&euml;n, opnamen of enige andere manier, zonder uitdrukkelijke voorafgaande schriftelijke toestemming van ons.
+    #content
+      #groupColumn
+        #groupTitle
+          h2 Groepen
+          |
+          button#groupColumnClose
+            img(src='images/newChatClose.png')
+        |
+        #groups
+      |
+      #chatColumn
+        #chat
+        |
+        #chatBar
+          textarea#messageBox
+          |
+          button#sendMessage
+            img(src='images/sendButton.png')
+      |
+      #memberColumn
+        #memberColumnTitle
+          h2 Groepsleden
+        |
+        #members
+    #newGroup
+      textarea#newGroupName(placeholder='Naam van de groep', maxlength='20')
+      |
+      button#createNewGroup
+        img(src='images/sendButton.png')
+    button#newGroupButton
+      img#newGroupImage(src='images/plusButton.png')
+    #editGroup
+      input#addMember(type='text', placeholder='voeg mensen toe')
+      |
+      input#addMemberButton(type='button', value='>')
+      br
+      |
+      input#deleteGroup(type='button', value='Groep verwijderen')

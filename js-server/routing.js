@@ -5,14 +5,14 @@ module.exports = function(app,db){
 //zo ja wordt hij naar de chatomgeving gestuurd
 //zo niet wordt hij naar de loginpagina gestuurd
 app.get('/',(req,res)=>{
-  if(req.session.loggedIn === 'true') res.sendFile('index.html', {root:'../html'})
+  if(req.session.loggedIn === 'true') res.render('index');
   else res.redirect('/login')
 })
 
 //bij post wordt login gegevens gecheckt en session waardes gezet
 app.route('/login')
   .get((req,res)=>{
-    res.sendFile('login.html',{root:'../html'})
+    res.render('login')
     req.session.loginError = ''
   })
   .post((req,res)=>{
